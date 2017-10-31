@@ -1,0 +1,19 @@
+[module/date]
+type = internal/date
+interval = 5
+#color = #0a6cf5
+color = ${colors.primary}
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix-foreground = ${self.color}
+format-underline = ${self.color}
+
+label = %date% %time%
+label-foreground = ${self.color}
+
+; vim:ft=dosini

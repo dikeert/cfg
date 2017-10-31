@@ -1,0 +1,14 @@
+[module/memory]
+type = internal/memory
+interval = 10
+
+color = #4bffdc
+
+format-prefix = " "
+format-prefix-foreground = ${self.color}
+format-underline = ${self.color}
+
+label = %gb_used%
+label-foreground = ${self.color}
+
+; vim:ft=dosini

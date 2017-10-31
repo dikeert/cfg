@@ -1,0 +1,14 @@
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+color = ${colors.primary}
+
+mount-0 = /media/capsule
+
+label-mounted = %{A1:nautilus /media/capsule &:}%{F#0a81f5}%{F-}%{A}
+label-mounted-foreground = ${self.color}
+label-unmounted = 
+label-unmounted-foreground = ${colors.foreground-alt}
+
+; vim:ft=dosini

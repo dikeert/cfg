@@ -1,0 +1,36 @@
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+#color = #ffb53c
+color = #0e8fff
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${self.color}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.color}
+label-discharging-font = 0
+label-discharging-foreground = ${self.color}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${self.color}
+format-full-underline = ${self.color}
+label-full-foreground = ${self.color}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${self.color}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${self.color}
+animation-charging-framerate = 750
+
+label-charging-foreground = ${self.color}
+
+; vim:ft=dosini

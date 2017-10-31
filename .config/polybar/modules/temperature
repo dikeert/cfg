@@ -1,0 +1,25 @@
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+
+color_ok = #45d529
+color_warn = #f50a4d
+
+format = <ramp> <label>
+format-underline = ${self.color_ok}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.color_warn}
+
+label = %temperature%
+label-foreground = ${self.color_ok}
+label-warn = %temperature%
+label-warn-foreground = ${self.color_warn}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${self.color_warn}
+
+
+; vim:ft=dosini

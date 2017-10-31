@@ -1,0 +1,42 @@
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+enable-click = true
+
+padding = 1
+
+ws-icon-0 = 1;General
+ws-icon-1 = 2;Firefox
+ws-icon-2 = 3;Evolution
+ws-icon-3 = 4;VSCode
+ws-icon-4 = 6;digiKam
+ws-icon-5 = 10;Misc
+
+label-mode-padding = ${self.padding}
+label-mode-foreground =#000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.primary}
+label-focused-padding = ${self.padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = ${self.padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = ${self.padding}
+
+; vim:ft=dosini
