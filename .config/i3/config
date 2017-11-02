@@ -88,13 +88,14 @@ set $shift Shift
 set $enter Return
 set $tab Tab
 
-set $term xterm
+set $term st
 
-set $misc 1
+set $general 1
 set $firefox 2
 set $mail 3
 set $code 4
 set $photos 6
+set $misc 10
 
 # Look and feel
 font pango:monaco 10
@@ -132,7 +133,7 @@ bindsym $win+r exec dmenu_run
 # Modes
 
 mode "muhterm" {
-        bindsym $alt+1 scratchpad show, mode default, workspace $misc
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
@@ -141,7 +142,7 @@ mode "muhterm" {
 }
 
 mode "telegram" {
-        bindsym $alt+1 scratchpad show, mode default, workspace $misc
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
@@ -152,7 +153,7 @@ mode "telegram" {
 }
 
 mode "nautilus" {
-        bindsym $alt+1 scratchpad show, mode default, workspace $misc
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
@@ -162,8 +163,11 @@ mode "nautilus" {
         bindsym $alt+q kill, mode default
 }
 
+# General
+bindsym $alt+1 workspace $general
+
 # Misc
-bindsym $alt+1 workspace $misc
+bindsym $alt+0 workspace $misc
 
 # Firefox
 bindsym $alt+2 workspace $firefox
@@ -187,7 +191,7 @@ for_window [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] 
         move scratchpad, \
         border pixel 2
 
-for_window [class="^XTerm$" instance="^MUHTERM$"] \
+for_window [class="^st-256color$" instance="^MUHTERM$"] \
         move scratchpad, \
         resize set 1280 778, \
         move position 0 22, \
@@ -215,7 +219,7 @@ bindsym $alt+6 [class="^TelegramDesktop$" instance="^telegram$" window_type=norm
         scratchpad show, \
         mode telegram
 
-bindsym $alt+backslash [class="^XTerm$" instance="^MUHTERM$"] \
+bindsym $alt+backslash [class="^st-256color$" instance="^MUHTERM$"] \
         scratchpad show, \
         mode muhterm
 

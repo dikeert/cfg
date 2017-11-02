@@ -1,7 +1,7 @@
 #!/bin/bash
 
 compton -b --config ~/.config/compton.conf
-xterm -name MUHTERM &
+st -n MUHTERM &
 dropbox start
 telegram &
 firefox &
