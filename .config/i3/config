@@ -130,6 +130,10 @@ bindsym $alt+$shift+e split h, exec $term
 bindsym $alt+$shift+o split v, exec $term
 bindsym $win+r exec dmenu_run
 
+bindsym XF86AudioMute exec amixer -q sset Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+
 # Modes
 
 mode "muhterm" {
