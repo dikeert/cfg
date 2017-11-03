@@ -156,6 +156,17 @@ mode "telegram" {
         bindsym $alt+q kill, mode default
 }
 
+mode "stride" {
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
+        bindsym $alt+2 scratchpad show, mode default, workspace $firefox
+        bindsym $alt+$win+v scratchpad show, mode default, workspace $code
+        bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+
+        bindsym $alt+7 scratchpad show, mode default
+        bindsym $alt+h scratchpad show, mode default
+        bindsym $alt+q kill, mode default
+}
+
 mode "nautilus" {
         bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
@@ -195,6 +206,12 @@ for_window [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] 
         move scratchpad, \
         border pixel 2
 
+for_window [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal] \
+        move scratchpad, \
+        resize set 1280 778, \
+        move position 0 22, \
+        scratchpad show
+
 for_window [class="^st-256color$" instance="^MUHTERM$"] \
         move scratchpad, \
         resize set 1280 778, \
@@ -222,6 +239,10 @@ for_window [class="^Code$" instance="^code$"] \
 bindsym $alt+6 [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
         scratchpad show, \
         mode telegram
+
+bindsym $alt+7 [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal] \
+        scratchpad show, \
+        mode stride
 
 bindsym $alt+backslash [class="^st-256color$" instance="^MUHTERM$"] \
         scratchpad show, \
