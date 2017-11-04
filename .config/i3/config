@@ -134,6 +134,8 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
 
+bindsym $alt+$ctrl+$win+b mode "block"
+
 # Modes
 
 mode "muhterm" {
@@ -176,6 +178,10 @@ mode "nautilus" {
         bindsym $alt+$win+f scratchpad show, mode default
         bindsym $alt+h scratchpad show, mode default
         bindsym $alt+q kill, mode default
+}
+
+mode "block" {
+        bindsym $alt+$ctrl+$win+q mode default
 }
 
 # General
