@@ -22,6 +22,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end() 
 filetype plugin indent on
 
@@ -67,6 +68,10 @@ set completeopt=menuone
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 
 map <c-k><c-b> :NERDTreeToggle<cr>
