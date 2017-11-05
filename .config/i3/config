@@ -143,6 +143,7 @@ mode "muhterm" {
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
 
         # I want to be able to switch into telegram from muhterm
         bindsym $alt+6, \
@@ -159,6 +160,7 @@ mode "telegram" {
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
 
         bindsym $alt+backslash scratchpad show, \
                 [class="^st-256color$" instance="^MUHTERM$"] \
@@ -174,6 +176,18 @@ mode "stride" {
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
+
+        bindsym $alt+6, \
+                scratchpad show, \
+                [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
+                        scratchpad show, \
+                        mode telegram
+
+        bindsym $alt+backslash scratchpad show, \
+                [class="^st-256color$" instance="^MUHTERM$"] \
+                        scratchpad show, \
+                        mode muhterm
 
         bindsym $alt+7 scratchpad show, mode default
         bindsym $alt+h scratchpad show, mode default
@@ -185,6 +199,7 @@ mode "nautilus" {
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
 
         bindsym $alt+$win+f scratchpad show, mode default
         bindsym $alt+h scratchpad show, mode default
