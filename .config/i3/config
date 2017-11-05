@@ -144,6 +144,13 @@ mode "muhterm" {
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
 
+        # I want to be able to switch into telegram from muhterm
+        bindsym $alt+6, \
+                scratchpad show, \
+                [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
+                        scratchpad show, \
+                        mode telegram
+
         bindsym $alt+backslash scratchpad show, mode default
 }
 
@@ -153,7 +160,11 @@ mode "telegram" {
         bindsym $alt+$win+v scratchpad show, mode default, workspace $code
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
 
-        bindsym $alt+6 scratchpad show, mode default
+        bindsym $alt+backslash scratchpad show, \
+                [class="^st-256color$" instance="^MUHTERM$"] \
+                        scratchpad show, \
+                        mode muhterm
+
         bindsym $alt+h scratchpad show, mode default
         bindsym $alt+q kill, mode default
 }
