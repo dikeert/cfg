@@ -3,6 +3,7 @@ set shortmess=at
 set nocompatible
 set nu
 set nowrap
+set timeoutlen=1000 ttimeoutlen=0
 
 if $VIM_CRONTAB == "true"
 	set nobackup
@@ -46,7 +47,7 @@ if has("unix")
 		catch /^Vim\%((\a\+)\)\=:E185/
 			" deal with it
 		endtry
-		highlight ColorColumn ctermbg=255
+		" highlight ColorColumn ctermbg=255
 	endif
 endif
 
@@ -60,7 +61,7 @@ set backspace=indent,eol,start
 " Ignore these directories
 set wildignore+=*/target/**,*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip  
 
-let &colorcolumn=join(range(81,999),",")
+" let &colorcolumn=join(range(81,999),",")
 hi Visual term=reverse cterm=reverse guibg=Grey
 
 " YouCompleteMe
@@ -75,3 +76,8 @@ let g:NERDTrimTrailingWhitespace = 1
 
 
 map <c-k><c-b> :NERDTreeToggle<cr>
+
+execute "set <M-H>=\eH"
+execute "set <M-L>=\eL"
+nnoremap <M-H> :bp<Enter>
+nnoremap <M-L> :bn<Enter>
