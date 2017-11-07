@@ -101,9 +101,9 @@ set $misc 10
 font pango:monaco 10
 for_window [class="^.*"] border pixel 0
 for_window [window_type=dialog] border pixel 2
-gaps outer 0
+gaps outer 10
 gaps inner 10
-smart_gaps on
+# smart_gaps on
 
 # Autostart stuff
 exec --no-startup-id ~/.config/i3/autostart.sh
