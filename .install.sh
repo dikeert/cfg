@@ -79,7 +79,7 @@ function do_install_brew {
 }
 
 function install {
-	local thing="$1"
+	local thing=$1
 	local install_base="do_install_"
 	local install_suff=""
 
@@ -94,8 +94,8 @@ function install {
 	fi
 
 	local cmd="${install_base}${install_suff}"
+	log "Using installer [${cmd}] for [${FUNCNAME[1]}] to install [${thing}]"
 
-	log "Using [${install_suff}] to install [${thing}]"
 	$cmd $thing
 }
 
