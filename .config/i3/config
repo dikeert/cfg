@@ -121,14 +121,14 @@ bindsym $alt+grave focus right
 
 bindsym $alt+$enter exec $term
 
-bindsym $ctrl+$shift+e split h, exec dmenu_run
-bindsym $ctrl+$shift+o split v, exec dmenu_run
+bindsym $ctrl+$shift+e split h, exec rofi -show run
+bindsym $ctrl+$shift+o split v, exec rofi -show run
+bindsym $win+r exec rofi -show combi
 
 bindsym $alt+$tab workspace back_and_forth
 
 bindsym $alt+$shift+e split h, exec $term
 bindsym $alt+$shift+o split v, exec $term
-bindsym $win+r exec dmenu_run
 
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+

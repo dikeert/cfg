@@ -7,7 +7,7 @@ color = #9f78e1
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${self.color}
-label-connected = %essid%
+label-connected = %{A1:/bin/bash -c /home/aner/.config/rofi/wifi/rofi-wifi-menu.sh:}%essid% %{A}
 label-connected-foreground = ${self.color}
 
 format-disconnected = <label-disconnected>
