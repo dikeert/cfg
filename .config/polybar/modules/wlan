@@ -7,13 +7,13 @@ color = #9f78e1
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${self.color}
-label-connected = %{A1:/bin/bash -c rofi-wifi-menu.sh:}%essid% %{A}
+label-connected = %{A1:/bin/bash -c rofi-wifi-menu.sh:}%essid%%{A}
 label-connected-foreground = ${self.color}
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${colors.foreground-alt}
 
-label-disconnected = no signal
+label-disconnected = %{A1:/bin/bash -c rofi-wifi-menu.sh:}no signal%{A}
 label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
