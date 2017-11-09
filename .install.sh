@@ -99,14 +99,21 @@ function install {
 	$cmd $thing
 }
 
-for f in .installers/*.sh; do
-	[ -f $f ] || continue
-	source $f
-done
 
-installers=$(typeset -F | grep run_installer_ | cut -d ' ' -f 3)
+function run_all_installers {
+	local me="${1}"
+	local bash=$(get bash)
+	local func_prefix="run_installer_"
 
-for installer in $installers; do
-	$installer
-done
+	for f in .installers/*.sh; do
+		[ -f $f ] || continue
+		local installer=$(echo $f | cut -d '/' -f 2 | cut -d '.' -f 1)
+		$bash -c "source '${me}'; source $f; ${func_prefix}${installer}"
+	done
+}
+
+if [ "$(basename $0)" = ".install.sh" ]; then
+	run_all_installers "$(basename $0)"
+fi
+
 
