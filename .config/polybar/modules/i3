@@ -7,12 +7,13 @@ enable-click = true
 
 padding = 1
 
-ws-icon-0 = 1;General
-ws-icon-1 = 2;Firefox
-ws-icon-2 = 3;Evolution
-ws-icon-3 = 4;VSCode
-ws-icon-4 = 6;digiKam
-ws-icon-5 = 10;Misc
+ws-icon-0 = 1;general
+ws-icon-1 = 2;firefox
+ws-icon-2 = 3;evolution
+ws-icon-3 = 4;idea
+ws-icon-4 = 5;code
+ws-icon-5 = 8;photos
+ws-icon-6 = 10;misc
 
 label-mode-padding = ${self.padding}
 label-mode-foreground =#000
