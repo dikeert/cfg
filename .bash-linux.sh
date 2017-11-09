@@ -14,7 +14,7 @@ function do_ppwd {
 }
 
 function do_idea {
-	echo "Not implemented on linux yet"
+	/usr/local/bin/idea
 }
 
 function do_title {
