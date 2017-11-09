@@ -123,9 +123,11 @@ bindsym $alt+$enter exec $term
 
 bindsym $ctrl+$shift+e split h, exec rofi -show run
 bindsym $ctrl+$shift+o split v, exec rofi -show run
-bindsym $win+r exec rofi -show combi
+bindsym $win+r exec rofi -show run
+bindsym $win+space exec rofi -show combi
 
 bindsym $alt+$tab workspace back_and_forth
+bindsym $win+$tab exec rofi -show window
 
 bindsym $alt+$shift+e split h, exec $term
 bindsym $alt+$shift+o split v, exec $term
