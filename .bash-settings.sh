@@ -9,6 +9,10 @@ esac
 export GOPATH="$HOME/Projects/Go"
 export PATH="$GOPATH/bin:$PATH"
 
+# Todo.TXT
+source ~/.local/share/completions/todo_completion
+complete -F _todo t
+
 # MAVEN, JAVA
 export MAVEN_OPTS="-Xmx4096m"
 
