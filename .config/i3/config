@@ -127,7 +127,38 @@ mode "muhterm" {
                         scratchpad show, \
                         mode telegram
 
+        # I want to be able to switch into todo
+        bindsym $alt+$win+t scratchpad show, \
+                [class="^st-256color$" instance="^MUHTODO$"] \
+                        scratchpad show, \
+                        mode muhtodo
+
         bindsym $alt+backslash scratchpad show, mode default
+}
+
+mode "muhtodo" {
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
+        bindsym $alt+2 scratchpad show, mode default, workspace $firefox
+        bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
+        bindsym $alt+$win+v scratchpad show, mode default, workspace $code
+        bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
+
+        # I want to be able to switch into telegram from muhtodo
+        bindsym $alt+6, \
+                scratchpad show, \
+                [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
+                        scratchpad show, \
+                        mode telegram
+
+        bindsym $alt+backslash scratchpad show, \
+                [class="^st-256color$" instance="^MUHTERM$"] \
+                        scratchpad show, \
+                        mode muhterm
+
+        bindsym $alt+$win+t scratchpad show, mode default
+        bindsym $alt+h scratchpad show, mode default
+        bindsym $alt+q kill, mode default
 }
 
 mode "telegram" {
@@ -142,6 +173,11 @@ mode "telegram" {
                 [class="^st-256color$" instance="^MUHTERM$"] \
                         scratchpad show, \
                         mode muhterm
+
+        bindsym $alt+$win+t scratchpad show, \
+                [class="^st-256color$" instance="^MUHTODO$"] \
+                        scratchpad show, \
+                        mode muhtodo
 
         bindsym $alt+h scratchpad show, mode default
         bindsym $alt+q kill, mode default
@@ -165,6 +201,11 @@ mode "stride" {
                 [class="^st-256color$" instance="^MUHTERM$"] \
                         scratchpad show, \
                         mode muhterm
+        
+        bindsym $alt+$win+t scratchpad show, \
+                [class="^st-256color$" instance="^MUHTODO$"] \
+                        scratchpad show, \
+                        mode muhtodo
 
         bindsym $alt+7 scratchpad show, mode default
         bindsym $alt+h scratchpad show, mode default
@@ -233,6 +274,10 @@ for_window [class="^st-256color$" instance="^MUHTERM$"] \
         move position 0 22, \
         scratchpad show
 
+for_window [class="^st-256color$" instance="^MUHTODO$"] \
+        move scratchpad, \
+        border pixel 2
+
 for_window [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         move scratchpad, \
         border pixel 2, \
@@ -265,6 +310,10 @@ bindsym $alt+7 [class="^stride-nativefier-02d676$" instance="^stride-nativefier-
 bindsym $alt+backslash [class="^st-256color$" instance="^MUHTERM$"] \
         scratchpad show, \
         mode muhterm
+
+bindsym $alt+$win+t [class="^st-256color$" instance="^MUHTODO$"] \
+        scratchpad show, \
+        mode muhtodo
 
 bindsym $alt+$win+f [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         scratchpad show, \
