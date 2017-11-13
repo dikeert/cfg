@@ -197,8 +197,8 @@ mode "muhfm" {
                 scratchpad show, \
                 mode muhterm
 
-        bindsym $alt+$win+f scratchpad show, mode default
-        bindsym $alt+h scratchpad show, mode default
+        bindsym $alt+$win+f kill, mode default
+        bindsym $alt+h kill, mode default
         bindsym $alt+q kill, mode default
 }
 
@@ -322,7 +322,9 @@ for_window $muhterm \
 
 for_window $muhfm \
         move scratchpad, \
-        border pixel 2
+        border pixel 2, \
+        $muhfm scratchpad show, \
+        mode muhfm
 
 for_window $muhtodo \
         move scratchpad, \
@@ -361,14 +363,8 @@ bindsym $alt+backslash $muhterm \
         scratchpad show, \
         mode muhterm
 
-bindsym $alt+$win+f $muhfm \
-        scratchpad show, \
-        mode muhfm
+bindsym $alt+$win+f exec ~/.local/bin/r
 
 bindsym $alt+$win+t $muhtodo \
         scratchpad show, \
         mode muhtodo
-
-#bindsym $alt+$win+f [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
-#        scratchpad show, \
-#        mode nautilus
