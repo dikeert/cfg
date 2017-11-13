@@ -67,6 +67,12 @@ set $code 5
 set $photos 8
 set $misc 10
 
+set $muhterm [class="^st-256color$" instance="^MUHTERM$"]
+set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
+set $muhfm [class="^st-256color$" instance="^MUHFM$"]
+set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=normal]
+set $stride [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal]
+
 # Look and feel
 font pango:monaco 9
 for_window [class="^.*"] border pixel 0
@@ -123,15 +129,20 @@ mode "muhterm" {
         # I want to be able to switch into telegram from muhterm
         bindsym $alt+6, \
                 scratchpad show, \
-                [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
-                        scratchpad show, \
-                        mode telegram
+                $telegram \
+                scratchpad show, \
+                mode telegram
 
         # I want to be able to switch into todo
         bindsym $alt+$win+t scratchpad show, \
-                [class="^st-256color$" instance="^MUHTODO$"] \
-                        scratchpad show, \
-                        mode muhtodo
+                $muhtodo \
+                scratchpad show, \
+                mode muhtodo
+        
+        bindsym $alt+$win+f scratchpad show, \
+                $muhfm \
+                scratchpad show, \
+                mode muhfm
 
         bindsym $alt+backslash scratchpad show, mode default
 }
@@ -147,16 +158,46 @@ mode "muhtodo" {
         # I want to be able to switch into telegram from muhtodo
         bindsym $alt+6, \
                 scratchpad show, \
-                [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
-                        scratchpad show, \
-                        mode telegram
+                $telegram \
+                scratchpad show, \
+                mode telegram
 
         bindsym $alt+backslash scratchpad show, \
-                [class="^st-256color$" instance="^MUHTERM$"] \
-                        scratchpad show, \
-                        mode muhterm
+                $telegram \
+                scratchpad show, \
+                mode muhterm
+
+        bindsym $alt+$win+f scratchpad show, \
+                $muhfm \
+                scratchpad show, \
+                mode muhfm
 
         bindsym $alt+$win+t scratchpad show, mode default
+        bindsym $alt+h scratchpad show, mode default
+        bindsym $alt+q kill, mode default
+}
+
+mode "muhfm" {
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
+        bindsym $alt+2 scratchpad show, mode default, workspace $firefox
+        bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
+        bindsym $alt+$win+v scratchpad show, mode default, workspace $code
+        bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
+
+        # I want to be able to switch into telegram from muhtodo
+        bindsym $alt+6, \
+                scratchpad show, \
+                $telegram \
+                scratchpad show, \
+                mode telegram
+
+        bindsym $alt+backslash scratchpad show, \
+                $telegram \
+                scratchpad show, \
+                mode muhterm
+
+        bindsym $alt+$win+f scratchpad show, mode default
         bindsym $alt+h scratchpad show, mode default
         bindsym $alt+q kill, mode default
 }
@@ -170,14 +211,19 @@ mode "telegram" {
         bindsym $alt+0 scratchpad show, mode default, workspace $misc
 
         bindsym $alt+backslash scratchpad show, \
-                [class="^st-256color$" instance="^MUHTERM$"] \
-                        scratchpad show, \
-                        mode muhterm
+                $muhterm \
+                scratchpad show, \
+                mode muhterm
 
         bindsym $alt+$win+t scratchpad show, \
-                [class="^st-256color$" instance="^MUHTODO$"] \
-                        scratchpad show, \
-                        mode muhtodo
+                $muhtodo \
+                scratchpad show, \
+                mode muhtodo
+
+        bindsym $alt+$win+f scratchpad show, \
+                $muhfm \
+                scratchpad show, \
+                mode muhfm
 
         bindsym $alt+h scratchpad show, mode default
         bindsym $alt+q kill, mode default
@@ -193,19 +239,19 @@ mode "stride" {
 
         bindsym $alt+6, \
                 scratchpad show, \
-                [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
-                        scratchpad show, \
-                        mode telegram
+                $telegram \
+                scratchpad show, \
+                mode telegram
 
         bindsym $alt+backslash scratchpad show, \
-                [class="^st-256color$" instance="^MUHTERM$"] \
-                        scratchpad show, \
-                        mode muhterm
+                $muhterm \
+                scratchpad show, \
+                mode muhterm
         
         bindsym $alt+$win+t scratchpad show, \
-                [class="^st-256color$" instance="^MUHTODO$"] \
-                        scratchpad show, \
-                        mode muhtodo
+                $muhtodo \
+                scratchpad show, \
+                mode muhtodo
 
         bindsym $alt+7 scratchpad show, mode default
         bindsym $alt+h scratchpad show, mode default
@@ -258,23 +304,27 @@ assign [class="^Code$" instance="^code$"] → $code
 assign [class="^digikam$" instance="^digikam$"] → $photos
 assign [class="^Evolution$" instance="^evolution$"] → $mail
 
-for_window [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
+for_window $telegram \
         move scratchpad, \
         border pixel 2
 
-for_window [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal] \
+for_window $stride \
         move scratchpad, \
         resize set 1280 778, \
         move position 0 22, \
         scratchpad show
 
-for_window [class="^st-256color$" instance="^MUHTERM$"] \
+for_window $muhterm \
         move scratchpad, \
         resize set 1280 778, \
         move position 0 22, \
         scratchpad show
 
-for_window [class="^st-256color$" instance="^MUHTODO$"] \
+for_window $muhfm \
+        move scratchpad, \
+        border pixel 2
+
+for_window $muhtodo \
         move scratchpad, \
         border pixel 2
 
@@ -299,22 +349,26 @@ for_window [class="^Code$" instance="^code$"] \
         layout tabbed 
 
 # Scratchpads
-bindsym $alt+6 [class="^TelegramDesktop$" instance="^telegram$" window_type=normal] \
+bindsym $alt+6 $telegram \
         scratchpad show, \
         mode telegram
 
-bindsym $alt+7 [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal] \
+bindsym $alt+7 $stride \
         scratchpad show, \
         mode stride
 
-bindsym $alt+backslash [class="^st-256color$" instance="^MUHTERM$"] \
+bindsym $alt+backslash $muhterm \
         scratchpad show, \
         mode muhterm
 
-bindsym $alt+$win+t [class="^st-256color$" instance="^MUHTODO$"] \
+bindsym $alt+$win+f $muhfm \
+        scratchpad show, \
+        mode muhfm
+
+bindsym $alt+$win+t $muhtodo \
         scratchpad show, \
         mode muhtodo
 
-bindsym $alt+$win+f [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
-        scratchpad show, \
-        mode nautilus
+#bindsym $alt+$win+f [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
+#        scratchpad show, \
+#        mode nautilus
