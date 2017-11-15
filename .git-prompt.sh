@@ -1,0 +1,1 @@
+/home/aner/Projects/Misc/config/DotFiles/git-prompt.sh
