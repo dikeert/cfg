@@ -3,15 +3,15 @@
 todo="todo.sh"
 
 function gpc {
-	todo.sh lsprj | wc -l
+	todo.sh lsprj | wc -l | sed -e 's/^[ \t]*//'
 }
 
 function gcc {
-	todo.sh lsc | wc -l
+	todo.sh lsc | wc -l | sed -e 's/^[ \t]*//'
 }
 
 function gtc {
-	todo.sh ls | grep TODO: | cut -d ' ' -f 2
+	todo.sh ls | grep TODO: | cut -d ' ' -f 2 | sed -e 's/^[ \t]*//'
 }
 
 function todo_line {
@@ -23,19 +23,29 @@ function todo_line {
 	printf "\033[0;34m${projects}\033[0;32m${contexts}\033[0;31m${tasks}"
 }
 
-do_ls ()
-{
+function do_t {
+	if [ "x$1" = "x" ]; then
+		do_ls
+	elif [ "${1:0:1}" = '+' ]; then
+		do_ls "${1}"
+	elif [ "${1:0:1}" = '@' ]; then
+		do_ls "${1}"
+	else
+		clear && ${todo} $@ | less -R
+	fi
+}
+
+function do_ls {
 	clear && ${todo} ls $@ | less -R
 }
 
 
-do_lsprj ()
-{
+function do_lsprj {
 	clear && ${todo} lsprj $@ | less -R
 }
 
 
-alias t="${todo}"
+alias t="do_t"
 alias l="do_ls"
 alias p="do_lsprj"
 alias c="${todo} lsc"
