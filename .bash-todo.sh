@@ -23,9 +23,21 @@ function todo_line {
 	printf "\033[0;34m${projects}\033[0;32m${contexts}\033[0;31m${tasks}"
 }
 
+do_ls ()
+{
+	clear && ${todo} ls $@ | less -R
+}
+
+
+do_lsprj ()
+{
+	clear && ${todo} lsprj $@ | less -R
+}
+
+
 alias t="${todo}"
-alias l="${todo} ls"
-alias p="${todo} lsprj"
+alias l="do_ls"
+alias p="do_lsprj"
 alias c="${todo} lsc"
 alias a="${todo} a"
 alias do="${todo} do"
