@@ -40,6 +40,7 @@ if has("unix")
 			" deal with it
 		endtry
 		set background=dark
+		set clipboard=unnamedplus
 	else
 		set background=light
 		try
