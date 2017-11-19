@@ -6,8 +6,9 @@ case $(uname) in
 esac
 
 # GO
-export GOPATH="$HOME/Projects/Go"
-export PATH="$GOPATH/bin:$PATH"
+export GOROOT="${HOME}/.local/go"
+export GOPATH="${HOME}/src/go"
+export PATH="${GOPATH}/bin:${GOROOT}/bin:${PATH}"
 
 # Todo.TXT
 source ~/.local/share/completions/todo_completion

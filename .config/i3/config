@@ -47,7 +47,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $alt+r mode "resize"
+# bindsym $alt+r mode "resize"
 
 # Vars
 set $ctrl Ctrl
