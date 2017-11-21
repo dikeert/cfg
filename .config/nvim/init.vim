@@ -84,6 +84,11 @@ set nocompatible
 	
 	" Deoplete {
 		let g:deoplete#enable_at_startup = 1
+		set completeopt-=preview
+		set completeopt+=noinsert
+		call deoplete#custom#source('go', 'rank', 1000)
+		let g:deoplete#ignore_sources = {}
+		let g:deoplete#ignore_sources._ = ['buffer']
 	" }
 	
 	" vim-go {
