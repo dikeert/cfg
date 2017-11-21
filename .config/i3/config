@@ -199,6 +199,7 @@ mode "muhfm" {
 
         bindsym $alt+$win+f kill, mode default
         bindsym $alt+h kill, mode default
+        bindsym q kill, mode default
         bindsym $alt+q kill, mode default
 }
 
