@@ -1,54 +1,3 @@
-# kill focused window
-bindsym $alt+q kill
-
-
-# toggle tiling / floating
-bindsym $alt+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $alt+space focus mode_toggle
-
-# focus the parent container
-bindsym $alt+a focus parent
-
-# focus the child container
-#bindsym $alt+d focus child
-
-
-# reload the configuration file
-bindsym $alt+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $alt+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $alt+Shift+q exec \
-        "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-# bindsym $alt+r mode "resize"
-
 # Vars
 set $ctrl Ctrl
 set $alt Mod1
@@ -67,21 +16,32 @@ set $code 5
 set $photos 8
 set $misc 10
 
+set $border 4
+
 set $muhterm [class="^st-256color$" instance="^MUHTERM$"]
 set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
 set $muhfm [class="^st-256color$" instance="^MUHFM$"]
 set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=normal]
 set $stride [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal]
+set $skype [class="^Skype$" instance="^skype$" window_type=normal]
 
 # Look and feel
-font pango:monaco 9
-for_window [class="^.*"] border pixel 0
-for_window [window_type=dialog] border pixel 2
-gaps outer 10
+font pango:monaco 11
+for_window [class="^.*"] border pixel 4
+hide_edge_borders both
+for_window [window_type=dialog] border pixel $border
+mouse_warping output
+focus_follows_mouse no
+
+client.focused					#0073A3 #0073A3 #ffffff #0073A3   #0073A3
+client.focused_inactive	#E5E5E4 #5f676a #ffffff #E5E5E4   #E5E5E4
+client.unfocused				#E5E5E4 #5f676a #ffffff #E5E5E4   #E5E5E4
+
+gaps outer 0
 gaps inner 10
 smart_gaps on
 
-# Autostart stuff
+# Autostart
 exec --no-startup-id ~/.config/i3/autostart.sh
 exec_always --no-startup-id ~/.config/i3/essentials.sh
 
@@ -90,11 +50,16 @@ floating_modifier $alt
 workspace_auto_back_and_forth no
 
 # Shortcuts
-bindsym $alt+h focus left
-bindsym $alt+j focus down
-bindsym $alt+k focus up
-bindsym $alt+l focus right
-bindsym $alt+grave focus right
+bindsym $alt+h exec ~/.config/i3/mouse_center.sh focus left
+bindsym $alt+j exec ~/.config/i3/mouse_center.sh focus down
+bindsym $alt+k exec ~/.config/i3/mouse_center.sh focus up
+bindsym $alt+l exec ~/.config/i3/mouse_center.sh focus right
+bindsym $alt+grave exec ~/.config/i3/mouse_center.sh focus right
+
+bindsym $alt+$ctrl+h exec ~/.config/i3/mouse_center.sh move left
+bindsym $alt+$ctrl+l exec ~/.config/i3/mouse_center.sh move right
+bindsym $alt+$ctrl+j exec ~/.config/i3/mouse_center.sh move down
+bindsym $alt+$ctrl+k exec ~/.config/i3/mouse_center.sh move up
 
 bindsym $alt+$enter exec $term
 
@@ -109,12 +74,58 @@ bindsym $win+$tab exec rofi -show window
 bindsym $alt+$shift+e split h, exec $term
 bindsym $alt+$shift+o split v, exec $term
 
+# xbacklight doesn't work with modesetting driver...
+bindsym XF86MonBrightnessUp exec \
+	MAX=$(cat /sys/class/backlight/intel_backlight/max_brightness) && \
+	VAL=`expr $(cat /sys/class/backlight/intel_backlight/brightness) + 10` && \
+	[ "${VAL}" -gt "${MAX}" ] \
+		&& echo "${MAX}" | tee /sys/class/backlight/intel_backlight/brightness \
+		|| echo "${VAL}" | tee /sys/class/backlight/intel_backlight/brightness
+bindsym XF86MonBrightnessDown exec \
+	MIN=0 && \
+	VAL=`expr $(cat /sys/class/backlight/intel_backlight/brightness) - 10` && \
+	[ "${VAL}" -lt "${MIN}" ] \
+		&& echo "${MIN}" | tee /sys/class/backlight/intel_backlight/brightness \
+		|| echo "${VAL}" | tee /sys/class/backlight/intel_backlight/brightness
 
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
 
 bindsym $alt+$ctrl+$win+b mode "block"
+
+# kill the window
+bindsym $alt+q kill
+# reload the configuration file
+bindsym $alt+$shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $alt+$shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $alt+$shift+q exec \
+	"i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# General
+bindsym $alt+1 workspace $general
+
+# Misc
+bindsym $alt+0 workspace $misc
+
+# Firefox
+bindsym $alt+2 workspace $firefox
+bindsym $alt+$shift+2 move container to workspace $firefox
+
+# IDEA
+bindsym $alt+$win+i workspace $idea
+bindsym $alt+$win+$shift+i move container to workspace $idea
+
+# Code
+bindsym $alt+$win+v workspace $code
+bindsym $alt+$win+$shift+v move container to workspace $code
+
+# Mail
+bindsym $alt+$win+m workspace $mail
+bindsym $alt+$win+$shift+m move container to workspace $mail
+
 
 # Modes
 
@@ -132,6 +143,17 @@ mode "muhterm" {
                 $telegram \
                 scratchpad show, \
                 mode telegram
+
+				bindsym $alt+7, \
+                scratchpad show, \
+                $stride \
+                scratchpad show, \
+                mode stride
+
+			  bindsym $alt+8 \
+								scratchpad show, \
+								$skype scratchpad show, \
+								mode skype
 
         # I want to be able to switch into todo
         bindsym $alt+$win+t scratchpad show, \
@@ -162,6 +184,17 @@ mode "muhtodo" {
                 scratchpad show, \
                 mode telegram
 
+				bindsym $alt+7, \
+                scratchpad show, \
+                $stride \
+                scratchpad show, \
+                mode stride
+
+			  bindsym $alt+8 \
+								scratchpad show, \
+								$skype scratchpad show, \
+								mode skype
+
         bindsym $alt+backslash scratchpad show, \
                 $telegram \
                 scratchpad show, \
@@ -178,23 +211,33 @@ mode "muhtodo" {
 }
 
 mode "muhfm" {
-        bindsym $alt+1 scratchpad show, mode default, workspace $general
-        bindsym $alt+2 scratchpad show, mode default, workspace $firefox
-        bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
-        bindsym $alt+$win+v scratchpad show, mode default, workspace $code
-        bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
-        bindsym $alt+0 scratchpad show, mode default, workspace $misc
+        bindsym $alt+1 kill, mode default, workspace $general
+        bindsym $alt+2 kill, mode default, workspace $firefox
+        bindsym $alt+$win+i kill, mode default, workspace $idea
+        bindsym $alt+$win+v kill, mode default, workspace $code
+        bindsym $alt+$win+m kill, mode default, workspace $mail
+        bindsym $alt+0 kill, mode default, workspace $misc
 
         # I want to be able to switch into telegram from muhtodo
         bindsym $alt+6, \
-                scratchpad show, \
-                $telegram \
-                scratchpad show, \
+                kill, \
+                $telegram scratchpad show, \
                 mode telegram
 
-        bindsym $alt+backslash scratchpad show, \
-                $telegram \
+				bindsym $alt+7, \
                 scratchpad show, \
+                $stride \
+                scratchpad show, \
+                mode stride
+
+			  bindsym $alt+8 \
+								scratchpad show, \
+								$skype scratchpad show, \
+								mode skype
+
+        bindsym $alt+backslash \
+								kill, \
+                $muhterm scratchpad show, \
                 mode muhterm
 
         bindsym $alt+$win+f kill, mode default
@@ -211,9 +254,19 @@ mode "telegram" {
         bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
         bindsym $alt+0 scratchpad show, mode default, workspace $misc
 
-        bindsym $alt+backslash scratchpad show, \
-                $muhterm \
+				bindsym $alt+7, \
                 scratchpad show, \
+                $stride \
+                scratchpad show, \
+                mode stride
+
+			  bindsym $alt+8 \
+								scratchpad show, \
+								$skype scratchpad show, \
+								mode skype
+
+        bindsym $alt+backslash scratchpad show, \
+                $muhterm scratchpad show, \
                 mode muhterm
 
         bindsym $alt+$win+t scratchpad show, \
@@ -244,9 +297,13 @@ mode "stride" {
                 scratchpad show, \
                 mode telegram
 
+			  bindsym $alt+8 \
+								scratchpad show, \
+								$skype scratchpad show, \
+								mode skype
+
         bindsym $alt+backslash scratchpad show, \
-                $muhterm \
-                scratchpad show, \
+                $muhterm scratchpad show, \
                 mode muhterm
         
         bindsym $alt+$win+t scratchpad show, \
@@ -258,6 +315,41 @@ mode "stride" {
         bindsym $alt+h scratchpad show, mode default
         bindsym $alt+q kill, mode default
 }
+
+mode "skype" {
+        bindsym $alt+1 scratchpad show, mode default, workspace $general
+        bindsym $alt+2 scratchpad show, mode default, workspace $firefox
+        bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
+        bindsym $alt+$win+v scratchpad show, mode default, workspace $code
+        bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
+        bindsym $alt+0 scratchpad show, mode default, workspace $misc
+
+        bindsym $alt+6, \
+                scratchpad show, \
+                $telegram \
+                scratchpad show, \
+                mode telegram
+
+				bindsym $alt+7, \
+                scratchpad show, \
+                $stride \
+                scratchpad show, \
+                mode stride
+
+        bindsym $alt+backslash scratchpad show, \
+                $muhterm scratchpad show, \
+                mode muhterm
+        
+        bindsym $alt+$win+t scratchpad show, \
+                $muhtodo \
+                scratchpad show, \
+                mode muhtodo
+
+        bindsym $alt+7 scratchpad show, mode default
+        bindsym $alt+h scratchpad show, mode default
+        bindsym $alt+q kill, mode default
+}
+
 
 mode "nautilus" {
         bindsym $alt+1 scratchpad show, mode default, workspace $general
@@ -276,27 +368,6 @@ mode "block" {
         bindsym $alt+$ctrl+$win+q mode default
 }
 
-# General
-bindsym $alt+1 workspace $general
-
-# Misc
-bindsym $alt+0 workspace $misc
-
-# Firefox
-bindsym $alt+2 workspace $firefox
-bindsym $alt+Shift+2 move container to workspace $firefox
-
-# IDEA
-bindsym $alt+$win+i workspace $idea
-bindsym $alt+$win+$shift+i move container to workspace $idea
-
-# Code
-bindsym $alt+$win+v workspace $code
-bindsym $alt+$win+$shift+v move container to workspace $code
-
-# Mail
-bindsym $alt+$win+m workspace $mail
-bindsym $alt+$win+$shift+m move container to workspace $mail
 
 # Rules
 assign [class="^Firefox$" instance="^Navigator$"] → $firefox
@@ -307,7 +378,7 @@ assign [class="^Evolution$" instance="^evolution$"] → $mail
 
 for_window $telegram \
         move scratchpad, \
-        border pixel 2
+        border pixel $border
 
 for_window $stride \
         move scratchpad, \
@@ -315,35 +386,41 @@ for_window $stride \
         move position 0 22, \
         scratchpad show
 
+for_window $skype \
+				move scratchpad
+
 for_window $muhterm \
         move scratchpad, \
-        resize set 1280 778, \
-        move position 0 22, \
+        resize set 1928 1060, \
+        move position -4 24, \
+				border pixel 0, \
         scratchpad show
 
 for_window $muhfm \
         move scratchpad, \
-        border pixel 2, \
+        border pixel $border, \
         $muhfm scratchpad show, \
         mode muhfm
 
 for_window $muhtodo \
         move scratchpad, \
-        border pixel 2
+        border pixel $border
 
 for_window [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         move scratchpad, \
-        border pixel 2, \
+        border pixel $border, \
         [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         scratchpad show, \
         mode nautilus
 
 for_window [class="^Evolution$" instance="^evolution$"] \
-        border pixel 0, \
         layout tabbed
 
 for_window [class="^Evolution$" instance="^evolution$" title="^Evolution Preferences$"] \
-        border pixel 2
+        border pixel $border
+
+for_window [class="^Evolution$" instance="^evolution$" title="^Welcome$"] \
+        border pixel $border
 
 for_window [class="^jetbrains-idea" instance="^sun-awt-X11-XFramePeer$"] \
         layout tabbed
@@ -359,6 +436,10 @@ bindsym $alt+6 $telegram \
 bindsym $alt+7 $stride \
         scratchpad show, \
         mode stride
+
+bindsym $alt+8 $skype \
+				scratchpad show, \
+				mode skype
 
 bindsym $alt+backslash $muhterm \
         scratchpad show, \

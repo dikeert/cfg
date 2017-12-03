@@ -4,8 +4,7 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-#color = #ffb53c
-color = #0e8fff
+color = #D7005F
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${self.color}

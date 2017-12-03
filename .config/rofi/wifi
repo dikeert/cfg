@@ -16,4 +16,4 @@ XOFF=0
 FIELDS=SSID,SECURITY,BARS
 
 #font
-FONT="Monaco 10"
+FONT="Monaco 11"

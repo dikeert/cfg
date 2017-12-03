@@ -1,11 +1,11 @@
 #!/bin/bash
 
-idea &
-code &
+dropbox start &
 evolution &
 firefox &
-digikam &
 telegram &
 st -n MUHTERM &
-st -n MUHTODO -e "/bin/bash --login -c 'source ~/.bash-todo.sh'" &
-dropbox start
+st -n MUHTODO -e "muhtodo.sh" &
+digikam &
+idea &
+code &

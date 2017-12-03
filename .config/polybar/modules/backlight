@@ -2,15 +2,15 @@
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = 
 
-bar-width = 10
+bar-width = 7
 bar-indicator = |
 bar-indicator-foreground = #ff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = ${colors.foreground}
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}

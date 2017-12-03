@@ -1,13 +1,12 @@
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 65
+warn-temperature = 60
 
-color_ok = #45d529
+color_ok = #129668
 color_warn = #f50a4d
 
 format = <ramp> <label>
-format-underline = ${self.color_ok}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.color_warn}
 

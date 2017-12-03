@@ -1,4 +1,5 @@
 set nocompatible
+set mouse=a
 
 " plugn manager, dein {
 	filetype off
@@ -41,24 +42,14 @@ set nocompatible
 
 	" colorscheme, clipboard, platform specific
 	if has("unix")
-		let s:uname = system("echo -n \"$(uname)\"")
-		if !v:shell_error && s:uname == "Linux"
-			try
-				colorscheme dracula
-			catch /^Vim\%((\a\+)\)\=:E185/
-				" deal with it
-			endtry
-			set background=dark
-			set clipboard=unnamedplus
-		else
-			set background=light
-			try
-				colorscheme PaperColor
-			catch /^Vim\%((\a\+)\)\=:E185/
-				" deal with it
-			endtry
-			" highlight ColorColumn ctermbg=255
-		endif
+		set background=light
+		set clipboard=unnamed
+		try
+			colorscheme PaperColor
+		catch /^Vim\%((\a\+)\)\=:E185/
+			" deal with it
+		endtry
+		" highlight ColorColumn ctermbg=255
 	endif
 
 	" indentation

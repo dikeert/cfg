@@ -16,7 +16,7 @@ ws-icon-5 = 8;photos
 ws-icon-6 = 10;misc
 
 label-mode-padding = ${self.padding}
-label-mode-foreground =#000
+label-mode-foreground = ${colors.background}
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
@@ -39,5 +39,6 @@ label-visible-padding = ${self.padding}
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = ${self.padding}
+label-urgent-foreground = ${colors.background}
 
 ; vim:ft=dosini

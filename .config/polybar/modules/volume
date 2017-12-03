@@ -3,7 +3,7 @@ type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 
-label-volume-foreground = ${colors.primary}
+label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = 
 format-muted-foreground = ${colors.foreground-alt}
