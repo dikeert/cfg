@@ -24,6 +24,7 @@ set $muhfm [class="^st-256color$" instance="^MUHFM$"]
 set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=normal]
 set $stride [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal]
 set $skype [class="^Skype$" instance="^skype$" window_type=normal]
+set $pavu [class="^Pavucontrol" instance="^pavucontrol$"]
 
 # Look and feel
 font pango:monaco 11
@@ -405,6 +406,9 @@ for_window $muhfm \
 for_window $muhtodo \
         move scratchpad, \
         border pixel $border
+
+for_window $pavu move scratchpad, \
+				scratchpad show
 
 for_window [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         move scratchpad, \
