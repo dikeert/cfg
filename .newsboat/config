@@ -1,0 +1,31 @@
+# Basics {
+    browser firefox
+    feed-sort-order title-dec
+    player mpv
+    reload-threads 16
+		refresh-on-startup no
+		articlelist-format "%-22T| %-117t | %D " 
+		datetime-format "%b %d %y"
+		article-sort-order date asc
+# }
+
+# Bindigns {
+    bind-key j next feedlist
+    bind-key k prev feedlist
+
+    bind-key j next articlelist
+    bind-key k prev articlelist
+
+    bind-key j down article
+    bind-key k up article
+# }
+
+# Colors {
+    color background           color7 default
+    color listnormal           color4 default
+    color listfocus            color0 color12 
+    color listnormal_unread    color4 default bold
+    color listfocus_unread     color7 color12 bold
+    color info                 color0 color4 bold
+    color article              color7 default
+# }
