@@ -4,7 +4,7 @@
     player mpv
     reload-threads 16
 		refresh-on-startup no
-		articlelist-format "%-22T| %-117t | %D " 
+		articlelist-format "%-22T| %-100t | %D " 
 		datetime-format "%b %d %y"
 		article-sort-order date asc
 # }

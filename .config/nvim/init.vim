@@ -43,7 +43,7 @@ set mouse=a
 	" colorscheme, clipboard, platform specific
 	if has("unix")
 		set background=light
-		set clipboard=unnamed
+		set clipboard=unnamedplus
 		try
 			colorscheme PaperColor
 		catch /^Vim\%((\a\+)\)\=:E185/

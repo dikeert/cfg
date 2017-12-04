@@ -76,18 +76,8 @@ bindsym $alt+$shift+e split h, exec $term
 bindsym $alt+$shift+o split v, exec $term
 
 # xbacklight doesn't work with modesetting driver...
-bindsym XF86MonBrightnessUp exec \
-	MAX=$(cat /sys/class/backlight/intel_backlight/max_brightness) && \
-	VAL=`expr $(cat /sys/class/backlight/intel_backlight/brightness) + 10` && \
-	[ "${VAL}" -gt "${MAX}" ] \
-		&& echo "${MAX}" | tee /sys/class/backlight/intel_backlight/brightness \
-		|| echo "${VAL}" | tee /sys/class/backlight/intel_backlight/brightness
-bindsym XF86MonBrightnessDown exec \
-	MIN=0 && \
-	VAL=`expr $(cat /sys/class/backlight/intel_backlight/brightness) - 10` && \
-	[ "${VAL}" -lt "${MIN}" ] \
-		&& echo "${MIN}" | tee /sys/class/backlight/intel_backlight/brightness \
-		|| echo "${VAL}" | tee /sys/class/backlight/intel_backlight/brightness
+bindsym XF86MonBrightnessUp exec ~/.config/i3/backlight.sh up
+bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
 
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
