@@ -22,7 +22,7 @@ set $muhterm [class="^st-256color$" instance="^MUHTERM$"]
 set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
 set $muhfm [class="^st-256color$" instance="^MUHFM$"]
 set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=normal]
-set $stride [class="^stride-nativefier-02d676$" instance="^stride-nativefier-02d676$" window_type=normal]
+set $stride [class="^stride-nativefier-" instance="^stride-nativefier-" window_type=normal]
 set $skype [class="^Skype$" instance="^skype$" window_type=normal]
 set $pavu [class="^Pavucontrol" instance="^pavucontrol$"]
 
