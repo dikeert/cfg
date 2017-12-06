@@ -25,6 +25,8 @@ set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=norma
 set $stride [class="^stride-nativefier-" instance="^stride-nativefier-" window_type=normal]
 set $skype [class="^Skype$" instance="^skype$" window_type=normal]
 set $pavu [class="^Pavucontrol" instance="^pavucontrol$"]
+set $anyconnect [class="^Anyconnect$" instance="^anyconnect$"]
+set $spotify [class="^Spotify$" instance="^spotify$"]
 
 # Look and feel
 font pango:monaco 11
@@ -403,6 +405,11 @@ for_window $muhtodo \
 
 for_window $pavu move scratchpad, \
 				scratchpad show
+
+for_window $anyconnect move scratchpad, \
+				scratchpad show
+
+for_window $spotify move scratchpad
 
 for_window [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         move scratchpad, \
