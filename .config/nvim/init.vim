@@ -109,10 +109,12 @@ set mouse=a
 	
 	map <c-k><c-b> :NERDTreeToggle<cr>
 	imap jk <Esc>
+	map <F10> :qall<cr>
 	
 	" go {
 		au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
-		au FileType go nmap <leader>gt :GoDecls<cr>
+		au FileType go nmap <leader>gg :GoDef<cr>
+		au FileType go nmap <leader>gt :GoTest<cr>
 	" }
 " }
 
