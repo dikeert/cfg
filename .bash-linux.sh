@@ -26,7 +26,8 @@ function do_tmux {
 }
 
 function do_mvn {
-	if [ $(cat .git/config | grep url | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
+	local root=$(git rev-parse --show-toplevel)
+	if [ $(cat "${root}/.git/config" | grep url | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
 		~/.local/bin/mvn -s ~/.m2/atl.xml $@
 	else
 		~/.local/bin/mvn
