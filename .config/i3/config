@@ -27,6 +27,7 @@ set $skype [class="^Skype$" instance="^skype$" window_type=normal]
 set $pavu [class="^Pavucontrol" instance="^pavucontrol$"]
 set $anyconnect [class="^Anyconnect$" instance="^anyconnect$"]
 set $spotify [class="^Spotify$" instance="^spotify$"]
+set $ffwin [class="^Firefox$" instance="^Navigator$"]
 
 # Look and feel
 font pango:monaco 11
@@ -51,6 +52,7 @@ exec_always --no-startup-id ~/.config/i3/essentials.sh
 # Behaviour
 floating_modifier $alt
 workspace_auto_back_and_forth no
+focus_on_window_activation none
 
 # Shortcuts
 bindsym $alt+h exec ~/.config/i3/mouse_center.sh focus left
@@ -367,11 +369,15 @@ mode "block" {
 
 
 # Rules
-assign [class="^Firefox$" instance="^Navigator$"] → $firefox
+assign $ffwin → $firefox
 assign [class="^jetbrains-idea" instance="^sun-awt-X11-XFramePeer$"] → $idea
 assign [class="^Code$" instance="^code$"] → $code
 assign [class="^digikam$" instance="^digikam$"] → $photos
 assign [class="^Evolution$" instance="^evolution$"] → $mail
+
+for_window $ffwin layout tabbed
+
+for_window $spotify move to workspace spotify
 
 for_window $telegram \
         move scratchpad, \
@@ -409,7 +415,6 @@ for_window $pavu move scratchpad, \
 for_window $anyconnect move scratchpad, \
 				scratchpad show
 
-for_window $spotify move scratchpad
 
 for_window [class="^Nautilus$" instance="^nautilus$" window_type=normal] \
         move scratchpad, \
