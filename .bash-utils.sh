@@ -29,6 +29,11 @@ function uber_download {
 }
 
 
+ddu() {
+	du -sch .[!.]* * |sort -h
+}
+
+
 function rmd () {
     pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
