@@ -115,6 +115,7 @@ set mouse=a
 		au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 		au FileType go nmap <leader>gg :GoDef<cr>
 		au FileType go nmap <leader>gt :GoTest<cr>
+		au FileType go nmap <leader>gb :GoBuild<cr>
 	" }
 " }
 
