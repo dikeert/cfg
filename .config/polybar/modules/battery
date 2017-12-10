@@ -1,6 +1,5 @@
-[module/battery]
+[battery/common]
 type = internal/battery
-battery = BAT0
 adapter = AC
 full-at = 98
 
@@ -31,5 +30,14 @@ animation-charging-foreground = ${self.color}
 animation-charging-framerate = 750
 
 label-charging-foreground = ${self.color}
+
+[module/b0]
+inherit = battery/common
+battery = BAT0
+
+
+[module/b1]
+inherit = battery/common
+battery = BAT1
 
 ; vim:ft=dosini

@@ -51,7 +51,7 @@ inherit = bar/common
 modules-left = i3
 modules-center = mpd
 
-modules-right = cpu memory temperature filesystem backlight-acpi volume xkeyboard battery wlan date
+modules-right = cpu memory temperature filesystem backlight-acpi volume xkeyboard b0 b1 wlan date
 
 tray-position = hidden
 tray-padding = 5
