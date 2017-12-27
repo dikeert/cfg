@@ -369,7 +369,7 @@ mode "block" {
 
 # Rules
 assign $ffwin → $firefox
-assign [class="^jetbrains-idea" instance="^sun-awt-X11-XFramePeer$"] → $idea
+assign [class="^jetbrains-" instance="^sun-awt-X11-XFramePeer$"] → $idea
 assign [class="^Code$" instance="^code$"] → $code
 assign [class="^Evolution$" instance="^evolution$"] → $mail
 
