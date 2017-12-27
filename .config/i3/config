@@ -13,10 +13,9 @@ set $firefox 2
 set $mail 3
 set $idea 4
 set $code 5
-set $photos 8
 set $misc 10
 
-set $border 4
+set $border 3
 
 set $muhterm [class="^st-256color$" instance="^MUHTERM$"]
 set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
@@ -30,16 +29,16 @@ set $spotify [class="^Spotify$" instance="^spotify$"]
 set $ffwin [class="^Firefox$" instance="^Navigator$"]
 
 # Look and feel
-font pango:monaco 11
+font pango:Roboto Medium 11
 for_window [class="^.*"] border pixel 4
 hide_edge_borders both
 for_window [window_type=dialog] border pixel $border
 mouse_warping output
 focus_follows_mouse no
 
-client.focused					#0073A3 #0073A3 #ffffff #0073A3   #0073A3
-client.focused_inactive	#E5E5E4 #5f676a #ffffff #E5E5E4   #E5E5E4
-client.unfocused				#E5E5E4 #5f676a #ffffff #E5E5E4   #E5E5E4
+client.focused             #DEDEDD #DEDEDD #005F87 #DEDEDD   #0073A3
+client.focused_inactive    #EEEEEE #EEEEEE #005F87 #DEDEDD   #EEEEEE
+client.unfocused           #EEEEEE #EEEEEE #005F87 #DEDEDD   #E5E5E4
 
 gaps outer 0
 gaps inner 10
@@ -195,7 +194,7 @@ mode "muhtodo" {
 								mode skype
 
         bindsym $alt+backslash scratchpad show, \
-                $telegram \
+                $muhterm \
                 scratchpad show, \
                 mode muhterm
 
@@ -372,7 +371,6 @@ mode "block" {
 assign $ffwin → $firefox
 assign [class="^jetbrains-idea" instance="^sun-awt-X11-XFramePeer$"] → $idea
 assign [class="^Code$" instance="^code$"] → $code
-assign [class="^digikam$" instance="^digikam$"] → $photos
 assign [class="^Evolution$" instance="^evolution$"] → $mail
 
 for_window $ffwin layout tabbed
