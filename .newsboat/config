@@ -7,6 +7,14 @@
 		articlelist-format "%-22T| %-100t | %D " 
 		datetime-format "%b %d %y"
 		article-sort-order date asc
+		prepopulate-query-feeds "yes"
+# }
+
+# Tiny Tiny RSS {
+	urls-source "ttrss"
+	ttrss-url "https://rss.ermys.com"
+	ttrss-login "aner"
+	ttrss-passwordfile "~/.newsboat/ttrss-pw.txt"
 # }
 
 # Bindigns {
@@ -28,4 +36,8 @@
     color listfocus_unread     color7 color12 bold
     color info                 color0 color4 bold
     color article              color7 default
+# }
+
+# Filters {
+	define-filter "Folders" "tags #\"_QUERY_\""
 # }
