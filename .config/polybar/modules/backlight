@@ -2,7 +2,7 @@
 type = internal/xbacklight
 
 format = <label> <bar>
-label = 
+label = 
 
 bar-width = 7
 bar-indicator = |

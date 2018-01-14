@@ -5,14 +5,14 @@ index-sort = false
 wrapping-scroll = false
 enable-click = true
 
-padding = 1
+padding = 3
 
-ws-icon-0 = 1;general
-ws-icon-1 = 2;firefox
-ws-icon-2 = 3;evolution
-ws-icon-3 = 4;ide
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
 ws-icon-4 = 5;code
-ws-icon-5 = 10;misc
+ws-icon-5 = 10;
 
 label-mode-padding = ${self.padding}
 label-mode-foreground = ${colors.background}
