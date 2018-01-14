@@ -27,13 +27,15 @@ function do_tmux {
 
 function do_mvn {
 	local root=$(git rev-parse --show-toplevel)
-	if [ $(cat "${root}/.git/config" | grep url | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
+	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
 		~/.local/bin/mvn -s ~/.m2/atl.xml $@
 	else
-		~/.local/bin/mvn
+		~/.local/bin/mvn $@
 	fi
 }
 
 alias mvn=do_mvn
 
+
+complete -C '~/.local/bin/aws_completer' aws
 export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[\033[36m\]$ \[\033[m\]'
