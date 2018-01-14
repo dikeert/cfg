@@ -18,11 +18,20 @@ set $misc 10
 set $border 3
 
 set $muhterm [class="^st-256color$" instance="^MUHTERM$"]
+set $mode_muhterm 
+
 set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
 set $muhfm [class="^st-256color$" instance="^MUHFM$"]
+
 set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=normal]
+set $mode_telegram 
+
 set $stride [class="^stride-nativefier-" instance="^stride-nativefier-" window_type=normal]
+set $mode_stride 
+
 set $skype [class="^Skype$" instance="^skype$" window_type=normal]
+set $mode_skype  
+
 set $pavu [class="^Pavucontrol" instance="^pavucontrol$"]
 set $anyconnect [class="^Anyconnect$" instance="^anyconnect$"]
 set $spotify [class="^Spotify$" instance="^spotify$"]
@@ -65,7 +74,6 @@ bindsym $alt+$ctrl+l exec ~/.config/i3/mouse_center.sh move right
 bindsym $alt+$ctrl+j exec ~/.config/i3/mouse_center.sh move down
 bindsym $alt+$ctrl+k exec ~/.config/i3/mouse_center.sh move up
 
-bindsym $alt+$enter exec $term
 
 bindsym $ctrl+$shift+e split h, exec rofi -show run
 bindsym $ctrl+$shift+o split v, exec rofi -show run
@@ -126,8 +134,7 @@ bindsym $alt+$win+$shift+m move container to workspace $mail
 
 
 # Modes
-
-mode "muhterm" {
+mode "$mode_muhterm" {
         bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
@@ -140,18 +147,18 @@ mode "muhterm" {
                 scratchpad show, \
                 $telegram \
                 scratchpad show, \
-                mode telegram
+                mode $mode_telegram
 
 				bindsym $alt+7, \
                 scratchpad show, \
                 $stride \
                 scratchpad show, \
-                mode stride
+                mode $mode_stride
 
 			  bindsym $alt+8 \
 								scratchpad show, \
 								$skype scratchpad show, \
-								mode skype
+								mode $mode_skype
 
         # I want to be able to switch into todo
         bindsym $alt+$win+t scratchpad show, \
@@ -180,23 +187,23 @@ mode "muhtodo" {
                 scratchpad show, \
                 $telegram \
                 scratchpad show, \
-                mode telegram
+                mode $mode_telegram
 
 				bindsym $alt+7, \
                 scratchpad show, \
                 $stride \
                 scratchpad show, \
-                mode stride
+                mode $mode_stride
 
 			  bindsym $alt+8 \
 								scratchpad show, \
 								$skype scratchpad show, \
-								mode skype
+								mode $mode_skype
 
         bindsym $alt+backslash scratchpad show, \
                 $muhterm \
                 scratchpad show, \
-                mode muhterm
+                mode $mode_muhterm
 
         bindsym $alt+$win+f scratchpad show, \
                 $muhfm \
@@ -220,23 +227,23 @@ mode "muhfm" {
         bindsym $alt+6, \
                 kill, \
                 $telegram scratchpad show, \
-                mode telegram
+                mode $mode_telegram
 
 				bindsym $alt+7, \
                 scratchpad show, \
                 $stride \
                 scratchpad show, \
-                mode stride
+                mode $mode_stride
 
 			  bindsym $alt+8 \
 								scratchpad show, \
 								$skype scratchpad show, \
-								mode skype
+								mode $mode_skype
 
         bindsym $alt+backslash \
 								kill, \
                 $muhterm scratchpad show, \
-                mode muhterm
+                mode $mode_muhterm
 
         bindsym $alt+$win+f kill, mode default
         bindsym $alt+h kill, mode default
@@ -244,7 +251,7 @@ mode "muhfm" {
         bindsym $alt+q kill, mode default
 }
 
-mode "telegram" {
+mode "$mode_telegram" {
         bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
@@ -256,16 +263,16 @@ mode "telegram" {
                 scratchpad show, \
                 $stride \
                 scratchpad show, \
-                mode stride
+                mode $mode_stride
 
 			  bindsym $alt+8 \
 								scratchpad show, \
 								$skype scratchpad show, \
-								mode skype
+								mode $mode_skype
 
         bindsym $alt+backslash scratchpad show, \
                 $muhterm scratchpad show, \
-                mode muhterm
+                mode $mode_muhterm
 
         bindsym $alt+$win+t scratchpad show, \
                 $muhtodo \
@@ -281,7 +288,7 @@ mode "telegram" {
         bindsym $alt+q kill, mode default
 }
 
-mode "stride" {
+mode "$mode_stride" {
         bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
@@ -293,16 +300,16 @@ mode "stride" {
                 scratchpad show, \
                 $telegram \
                 scratchpad show, \
-                mode telegram
+                mode $mode_telegram
 
 			  bindsym $alt+8 \
 								scratchpad show, \
 								$skype scratchpad show, \
-								mode skype
+								mode $mode_skype
 
         bindsym $alt+backslash scratchpad show, \
                 $muhterm scratchpad show, \
-                mode muhterm
+                mode $mode_muhterm
         
         bindsym $alt+$win+t scratchpad show, \
                 $muhtodo \
@@ -314,7 +321,7 @@ mode "stride" {
         bindsym $alt+q kill, mode default
 }
 
-mode "skype" {
+mode "$mode_skype" {
         bindsym $alt+1 scratchpad show, mode default, workspace $general
         bindsym $alt+2 scratchpad show, mode default, workspace $firefox
         bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
@@ -326,17 +333,17 @@ mode "skype" {
                 scratchpad show, \
                 $telegram \
                 scratchpad show, \
-                mode telegram
+                mode $mode_telegram
 
 				bindsym $alt+7, \
                 scratchpad show, \
                 $stride \
                 scratchpad show, \
-                mode stride
+                mode $mode_stride
 
         bindsym $alt+backslash scratchpad show, \
                 $muhterm scratchpad show, \
-                mode muhterm
+                mode $mode_muhterm
         
         bindsym $alt+$win+t scratchpad show, \
                 $muhtodo \
@@ -439,19 +446,19 @@ for_window [class="^Code$" instance="^code$"] \
 # Scratchpads
 bindsym $alt+6 $telegram \
         scratchpad show, \
-        mode telegram
+        mode $mode_telegram
 
 bindsym $alt+7 $stride \
         scratchpad show, \
-        mode stride
+        mode $mode_stride
 
 bindsym $alt+8 $skype \
 				scratchpad show, \
-				mode skype
+				mode $mode_skype
 
 bindsym $alt+backslash $muhterm \
         scratchpad show, \
-        mode muhterm
+        mode $mode_muhterm
 
 bindsym $alt+$win+f exec ~/.local/bin/r
 
