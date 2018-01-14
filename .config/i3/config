@@ -94,6 +94,13 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
 
+
+# media
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc toggle
+
 bindsym $alt+$ctrl+$win+b mode "block"
 
 # kill the window
