@@ -489,8 +489,8 @@ mode "block" {
 					border pixel $border
 
 	for_window $stride move scratchpad, \
-					resize set 1608 1058, \
-					move position 124 22, \
+					resize set 1608 990, \
+					move position 124 56, \
 					scratchpad show
 
 	for_window $skype move scratchpad
