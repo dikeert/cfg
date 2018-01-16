@@ -27,9 +27,9 @@ function do_t {
 	if [ "x$1" = "x" ]; then
 		do_ls
 	elif [ "${1:0:1}" = '+' ]; then
-		do_ls "${1}"
+		do_ls "$@"
 	elif [ "${1:0:1}" = '@' ]; then
-		do_ls "${1}"
+		do_ls "$@"
 	else
 		clear && ${todo} $@ | less -R
 	fi
