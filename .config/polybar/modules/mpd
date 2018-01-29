@@ -25,7 +25,7 @@ label-song = "%{T0}%{T-}  %artist% - %title%  "
 toggle-on-foreground = #ff
 toggle-off-foreground = #55
 
-bar-progress-width = 15
+bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = 
 bar-progress-empty = 

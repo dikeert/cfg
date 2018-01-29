@@ -21,7 +21,10 @@
 	set $mode_muhterm 
 
 	set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
+	set $mode_muhtodo 
+
 	set $muhfm [class="^st-256color$" instance="^MUHFM$"]
+	set $mode_muhfm 
 
 	set $telegram [class="^TelegramDesktop$" instance="^telegram$" window_type=normal]
 	set $mode_telegram 
@@ -94,11 +97,10 @@
 						scratchpad show, \
 						mode $mode_muhterm
 
-		bindsym $alt+$win+f exec ~/.local/bin/r
+		bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
 
-		bindsym $alt+$win+t $muhtodo \
-						scratchpad show, \
-						mode muhtodo	
+		bindsym $alt+$win+t $muhtodo scratchpad show, \
+			mode $mode_muhtodo
 	# }
 
 	# focus {
@@ -205,17 +207,28 @@
 #			$muhterm scratchpad show, \
 #			mode $mode_muhterm
 #
-#		bindsym $alt+$win+f exec ~/.local/bin/r
+#		bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
 #
 #		bindsym $alt+$win+t scratchpad show, \
 #			$muhtodo scratchpad show, \
-#			mode muhtodo	
+#			mode $mode_muhtodo	
 #	# }
 #	
 # # backlight {
 #	  bindsym XF86MonBrightnessUp exec ~/.config/i3/backlight.sh up
 #		bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
 #	# }
+#	# media {
+#		bindsym XF86AudioPrev exec mpc prev
+#		bindsym XF86AudioNext exec mpc next
+#		bindsym XF86AudioPlay exec mpc toggle
+#		bindsym XF86AudioStop exec mpc toggle
+#		bindsym XF86AudioMute exec amixer -q sset Master toggle
+#		bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+#		bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+# # }
+#
+# 
 #
 #	However, each scratchpad should just "call itself" shortcut
 
@@ -244,11 +257,11 @@ mode "$mode_muhterm" {
 			$skype scratchpad show, \
 			mode $mode_skype
 
-		bindsym $alt+$win+f exec ~/.local/bin/r
+		bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
 
 		bindsym $alt+$win+t scratchpad show, \
 			$muhtodo scratchpad show, \
-			mode muhtodo	
+			mode $mode_muhtodo
 	# }
 	
   # backlight {
@@ -269,7 +282,7 @@ mode "$mode_muhterm" {
 	bindsym $alt+backslash scratchpad show, mode default
 }
 
-mode "muhtodo" {
+mode "$mode_muhtodo" {
   # spaces {
 		bindsym $alt+1 scratchpad show, mode default, workspace $general
 		bindsym $alt+2 scratchpad show, mode default, workspace $browser
@@ -296,7 +309,7 @@ mode "muhtodo" {
 			$muhterm scratchpad show, \
 			mode $mode_muhterm
 																																			 
-		bindsym $alt+$win+f exec ~/.local/bin/r
+		bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
   # }
 
   # backlight {
@@ -304,11 +317,21 @@ mode "muhtodo" {
 		bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
   # }
 
+	# media {
+		bindsym XF86AudioPrev exec mpc prev
+		bindsym XF86AudioNext exec mpc next
+		bindsym XF86AudioPlay exec mpc toggle
+		bindsym XF86AudioStop exec mpc toggle
+		bindsym XF86AudioMute exec amixer -q sset Master toggle
+		bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+		bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+  # }
+
 	bindsym $alt+$win+t scratchpad show, mode default
 	bindsym $alt+h scratchpad show, mode default
 }
 
-mode "muhfm" {
+mode "$mode_muhfm" {
   # spaces {
     bindsym $alt+1 scratchpad show, mode default, workspace $general
     bindsym $alt+2 scratchpad show, mode default, workspace $browser
@@ -335,11 +358,11 @@ mode "muhfm" {
   		$muhterm scratchpad show, \
   		mode $mode_muhterm
                                                                        
-  	bindsym $alt+$win+f exec ~/.local/bin/r
+  	bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
                                                                        
   	bindsym $alt+$win+t scratchpad show, \
   		$muhtodo scratchpad show, \
-  		mode muhtodo	
+  		mode $mode_muhtodo
   # }
   
   # backlight {
@@ -347,9 +370,18 @@ mode "muhfm" {
   	bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
   # }
 
+	# media {
+		bindsym XF86AudioPrev exec mpc prev
+		bindsym XF86AudioNext exec mpc next
+		bindsym XF86AudioPlay exec mpc toggle
+		bindsym XF86AudioStop exec mpc toggle
+		bindsym XF86AudioMute exec amixer -q sset Master toggle
+		bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+		bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+  # }
+
 	bindsym $alt+$win+f kill, mode default
-	bindsym $alt+h kill, mode default
-	bindsym $alt+q kill, mode default
+	bindsym $alt+h $muhfm scratchpad show, mode $mode_muhfm, mode default
 }
 
 mode "$mode_telegram" {
@@ -375,11 +407,11 @@ mode "$mode_telegram" {
   		$muhterm scratchpad show, \
   		mode $mode_muhterm
                                                                        
-  	bindsym $alt+$win+f exec ~/.local/bin/r
+  	bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
                                                                        
   	bindsym $alt+$win+t scratchpad show, \
   		$muhtodo scratchpad show, \
-  		mode muhtodo	
+  		mode $mode_muhtodo
   # }
 
   # backlight {
@@ -387,6 +419,16 @@ mode "$mode_telegram" {
   	bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
   # }
                                                                      
+	# media {
+		bindsym XF86AudioPrev exec mpc prev
+		bindsym XF86AudioNext exec mpc next
+		bindsym XF86AudioPlay exec mpc toggle
+		bindsym XF86AudioStop exec mpc toggle
+		bindsym XF86AudioMute exec amixer -q sset Master toggle
+		bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+		bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+  # }
+
 	bindsym $alt+6 scratchpad show, mode default
 	bindsym $alt+h scratchpad show, mode default
 	bindsym $alt+q kill, mode default
@@ -415,11 +457,11 @@ mode "$mode_stride" {
   		$muhterm scratchpad show, \
   		mode $mode_muhterm
                                                                        
-  	bindsym $alt+$win+f exec ~/.local/bin/r
+  	bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
                                                                        
   	bindsym $alt+$win+t scratchpad show, \
   		$muhtodo scratchpad show, \
-  		mode muhtodo	
+  		mode $mode_muhtodo
   # }
 
   # backlight {
@@ -427,6 +469,16 @@ mode "$mode_stride" {
   	bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
   # }
 	
+	# media {
+		bindsym XF86AudioPrev exec mpc prev
+		bindsym XF86AudioNext exec mpc next
+		bindsym XF86AudioPlay exec mpc toggle
+		bindsym XF86AudioStop exec mpc toggle
+		bindsym XF86AudioMute exec amixer -q sset Master toggle
+		bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+		bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+  # }
+
 	bindsym $alt+7 scratchpad show, mode default
 	bindsym $alt+h scratchpad show, mode default
 	bindsym $alt+q kill, mode default
@@ -455,16 +507,26 @@ mode "$mode_skype" {
   		$muhterm scratchpad show, \
   		mode $mode_muhterm
                                                                        
-  	bindsym $alt+$win+f exec ~/.local/bin/r
+  	bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
                                                                        
   	bindsym $alt+$win+t scratchpad show, \
   		$muhtodo scratchpad show, \
-  		mode muhtodo	
+  		mode $mode_muhtodo
   # }
   
   # backlight {
     bindsym XF86MonBrightnessUp exec ~/.config/i3/backlight.sh up
   	bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
+  # }
+
+	# media {
+		bindsym XF86AudioPrev exec mpc prev
+		bindsym XF86AudioNext exec mpc next
+		bindsym XF86AudioPlay exec mpc toggle
+		bindsym XF86AudioStop exec mpc toggle
+		bindsym XF86AudioMute exec amixer -q sset Master toggle
+		bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+		bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
   # }
 
 	bindsym $alt+8 scratchpad show, mode default
@@ -502,9 +564,7 @@ mode "block" {
 					scratchpad show
 
 	for_window $muhfm move scratchpad, \
-					border pixel $border, \
-					$muhfm scratchpad show, \
-					mode muhfm
+					border pixel $border
 
 	for_window $muhtodo move scratchpad, \
 					border pixel $border
