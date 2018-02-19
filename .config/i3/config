@@ -257,7 +257,9 @@ mode "$mode_muhterm" {
 			$skype scratchpad show, \
 			mode $mode_skype
 
-		bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
+		bindsym $alt+$win+f scratchpad show, \
+			$muhfm scratchpad show, \
+			mode $mode_muhfm
 
 		bindsym $alt+$win+t scratchpad show, \
 			$muhtodo scratchpad show, \
