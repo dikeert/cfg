@@ -3,12 +3,12 @@
 
 killall -q compton
 killall polybar
-killall redshift
+# killall redshift
 
 compton -b --config ~/.config/compton.conf &
 polybar i3 &
 feh --bg-scale ~/.config/i3/bg &
-redshift &
+# redshift &
 
 # input settings
 xinput set-prop 15 339 0, 1 # different time of acceleration for track point

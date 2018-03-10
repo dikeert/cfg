@@ -31,7 +31,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 4
-line-color = #005F87
+line-color = #005F87b
 
 border-size = 0
 border-color = #00000000
@@ -42,10 +42,11 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = FontAwesome:size=13:fontformat=truetype:antialias=true;1
+font-0 = FontAwesome:size=14:fontformat=truetype:antialias=true;1
 font-1 = Roboto Medium:fontformat=truetype:size=11:antialias=true;1
 font-2 = fixed:fontformat=truetype:size=11:antialias=false;1
-font-3 = Siji:size=11:antialias=true;1
+font-3 = file\-icons:size=14:fontformat=truetype:antialias=true;3
+
 
 [bar/i3]
 inherit = bar/common
@@ -53,6 +54,19 @@ modules-left = i3
 modules-center = 
 
 modules-right = cpu memory temperature filesystem backlight-acpi mpd volume xkeyboard b0 b1 wlan date
+
+tray-position = hidden
+tray-padding = 5
+tray-transparent = false
+
+[bar/stumpwm]
+inherit = bar/common
+
+bottom = true
+modules-left = mpd
+modules-center = 
+
+modules-right = cpu memory temperature filesystem backlight-acpi volume xkeyboard b0 b1 wlan date
 
 tray-position = hidden
 tray-padding = 5

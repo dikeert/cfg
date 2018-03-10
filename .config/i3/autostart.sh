@@ -1,11 +1,9 @@
 #!/bin/bash
 
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-xrandr --dpi 96
-
+xrandr --setprovideroutputsource modesetting NVIDIA-0 --auto
 
 dropbox start &
+udiskie &
 evolution &
 firefox &
 telegram &
