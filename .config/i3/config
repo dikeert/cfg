@@ -173,6 +173,9 @@
 
   # layouts
   bindsym $win+f fullscreen toggle
+  bindsym $win+l layout toggle splith splitv tabbed
+
+  bindsym $win+a focus parent
 
   # hide the window
   bindsym $alt+$ctrl+$win+h scratchpad show
