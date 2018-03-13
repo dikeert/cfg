@@ -7,13 +7,8 @@
   set $tab Tab
 
   set $term st
-
-  set $general 1
-  set $browser 2
-  set $mail 3
-  set $idea 4
-  set $emacs_workspace 5
-  set $misc 10
+  
+  set $general "0 : "
 
   set $border 3
 
@@ -32,23 +27,18 @@
   set $stride [class="^stride-nativefier-" instance="^stride-nativefier-" window_type=normal]
   set $mode_stride 
 
-  set $skype [class="^Skype$" instance="^skype$" window_type=normal]
-  set $mode_skype 
-
   set $emacs [class="^Emacs$" instance="^emacs$" window_type=normal]
-  set $mode_emacs 
 
   set $pavu [class="^Pavucontrol" instance="^pavucontrol$"]
 
-  set $anyconnect [class="^Anyconnect$" instance="^anyconnect$"]
-
   set $firefox [class="^Firefox$" instance="^Navigator$"]
+  set $evolution [class="^Evolution$" instance="^evolution$"]
+  set $idea [class="^jetbrains-idea" instance="^sun-awt-X11-XFramePeer$"]
 # }
 
 # look and feel {
   font pango:Roboto Medium 11
   for_window [class="^.*"] border pixel 4
-  hide_edge_borders both
   for_window [window_type=dialog] border pixel $border
   mouse_warping output
   focus_follows_mouse no
@@ -56,7 +46,7 @@
   gaps inner 10
   workspace_auto_back_and_forth no
   focus_on_window_activation none
-	no_focus [window_type=normal]
+  no_focus [window_type=normal]
 
   # colors {
     client.focused             #DEDEDD #DEDEDD #0073A3 #DEDEDD   #0073A3
@@ -74,16 +64,54 @@
   floating_modifier $alt
 
   # spaces {
-    bindsym $alt+1 workspace $general
-    bindsym $alt+2 workspace $browser
+    bindsym $alt+$win+h workspace $general
+    bindsym $alt+$win+$shift+h move container to workspace $general
+    
+    bindsym $alt+$win+b $firefox focus
+    bindsym $alt+$win+$shift+b move container to workspace $browser
+    
     bindsym $alt+0 workspace $misc
+    bindsym $alt+$shift+0 move container to workspace $misc
 
     bindsym $alt+$win+i workspace $idea
+    bindsym $alt+$win+$shift+i move container to workspace $idea
+    
     bindsym $alt+$win+m workspace $mail
+    bindsym $alt+$win+$shift+m move container to workspace $mail
+
+    bindsym $alt+$win+e $emacs focus, mode $mode_emacs
+    bindsym $alt+$win+$shift+e move container to workspace $emacs_workspace
+    
+    bindsym $win+1 workspace 1
+    bindsym $win+$shift+1 move container to workspace 1
+    
+    bindsym $win+2 workspace 2
+    bindsym $win+$shift+2 move container to workspace 2
+    
+    bindsym $win+3 workspace 3
+    bindsym $win+$shift+3 move container to workspace 3
+    
+    bindsym $win+4 workspace 4
+    bindsym $win+$shift+4 move container to workspace 4
+    
+    bindsym $win+5 workspace 5
+    bindsym $win+$shift+5 move container to workspace 5
+    
+    bindsym $win+6 workspace 6
+    bindsym $win+$shift+6 move container to workspace 6
+    
+    bindsym $win+7 workspace 7
+    bindsym $win+$shift+7 move container to workspace 7
+    
+    bindsym $win+8 workspace 8
+    bindsym $win+$shift+8 move container to workspace 8
+    
+    bindsym $win+9 workspace 9
+    bindsym $win+$shift+9 move container to workspace 9
   # }
 
   # scratchpads {
-    bindsym $alt+6 $telegram \
+    bindsym $alt+$win+t $telegram \
     scratchpad show, \
     mode $mode_telegram
 
@@ -91,19 +119,15 @@
     scratchpad show, \
     mode $mode_stride
 
-    bindsym $alt+8 $skype \
-    scratchpad show, \
-    mode $mode_skype
-
     bindsym $alt+backslash $muhterm \
     scratchpad show, \
     mode $mode_muhterm
 
-    bindsym $alt+$win+e workspace $emacs_workspace
+
 
     bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
 
-    bindsym $alt+$win+t $muhtodo scratchpad show, \
+    bindsym $alt+$win+o $muhtodo scratchpad show, \
     mode $mode_muhtodo
   # }
 
@@ -121,11 +145,6 @@
     bindsym $win+$ctrl+l exec ~/.config/i3/mouse_center.sh move right
     bindsym $win+$ctrl+j exec ~/.config/i3/mouse_center.sh move down
     bindsym $win+$ctrl+k exec ~/.config/i3/mouse_center.sh move up
-
-    bindsym $alt+$shift+2 move container to workspace $browser
-    bindsym $alt+$win+$shift+i move container to workspace $idea
-    bindsym $alt+$win+$shift+m move container to workspace $mail
-    bindsym $alt+$win+$shift+0 move container to workspace $misc
   # }
 
   # rofi {
@@ -142,7 +161,7 @@
     bindsym $alt+$shift+e split h, exec $term
     bindsym $alt+$shift+o split v, exec $term
 
-    bindsym $win+$enter exec $term
+  hide_edge_borders both    bindsym $win+$enter exec $term
   # }
 
   # backlight {
@@ -172,7 +191,7 @@
   bindsym $alt+q kill
 
   # layouts
-  bindsym $win+f fullscreen toggle
+  bindsym $win+f mode fullscreen, fullscreen toggle
   bindsym $win+l layout toggle splith splitv tabbed
 
   bindsym $win+a focus parent
@@ -207,7 +226,7 @@ mode "$mode_muhterm" {
   # }
 
   # scratchpads {
-    bindsym $alt+6 scratchpad show, \
+    bindsym $alt+$win+t scratchpad show, \
             $telegram scratchpad show, \
             mode $mode_telegram
 
@@ -215,15 +234,11 @@ mode "$mode_muhterm" {
             $stride scratchpad show, \
             mode $mode_stride
 
-    bindsym $alt+8 scratchpad show, \
-            $skype scratchpad show, \
-            mode $mode_skype
-
     bindsym $alt+$win+f scratchpad show, \
             $muhfm scratchpad show, \
             mode $mode_muhfm
 
-    bindsym $alt+$win+t scratchpad show, \
+    bindsym $alt+$win+o scratchpad show, \
             $muhtodo scratchpad show, \
             mode $mode_muhtodo
   # }
@@ -259,17 +274,13 @@ mode "$mode_muhtodo" {
   # }
   
   # scratchpads {
-    bindsym $alt+6 scratchpad show, \
+    bindsym $alt+$win+t scratchpad show, \
             $telegram scratchpad show, \
             mode $mode_telegram
 
     bindsym $alt+7 scratchpad show, \
             $stride scratchpad show, \
             mode $mode_stride
-
-    bindsym $alt+8 scratchpad show, \
-            $skype scratchpad show, \
-            mode $mode_skype
 
     bindsym $alt+backslash scratchpad show, \
             $muhterm scratchpad show, \
@@ -295,7 +306,7 @@ mode "$mode_muhtodo" {
     bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
   # }
 
-  bindsym $alt+$win+t scratchpad show, mode default
+  bindsym $alt+$win+o scratchpad show, mode default
   bindsym $alt+h $muhtodo scratchpad show, mode default
 }
 
@@ -310,7 +321,7 @@ mode "$mode_muhfm" {
   # }
                                                                        
   # scratchpads {
-    bindsym $alt+6 scratchpad show, \
+    bindsym $alt+$win+t scratchpad show, \
             $telegram scratchpad show, \
             mode $mode_telegram
                                                                        
@@ -318,17 +329,13 @@ mode "$mode_muhfm" {
             $stride scratchpad show, \
             mode $mode_stride
 
-    bindsym $alt+8 scratchpad show, \
-            $skype scratchpad show, \
-            mode $mode_skype
-
     bindsym $alt+backslash scratchpad show, \
             $muhterm scratchpad show, \
             mode $mode_muhterm
 
     bindsym $alt+$win+f scratchpad show, mode default 
 
-    bindsym $alt+$win+t scratchpad show, \
+    bindsym $alt+$win+o scratchpad show, \
             $muhtodo scratchpad show, \
             mode $mode_muhtodo
   # }
@@ -367,17 +374,13 @@ mode "$mode_telegram" {
             $stride scratchpad show, \
             mode $mode_stride
 
-    bindsym $alt+8 scratchpad show, \
-            $skype scratchpad show, \
-            mode $mode_skype
-
     bindsym $alt+backslash scratchpad show, \
             $muhterm scratchpad show, \
             mode $mode_muhterm
 
     bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
 
-    bindsym $alt+$win+t scratchpad show, \
+    bindsym $alt+$win+o scratchpad show, \
             $muhtodo scratchpad show, \
             mode $mode_muhtodo
   # }
@@ -397,9 +400,19 @@ mode "$mode_telegram" {
     bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
   # }
 
-  bindsym $alt+6 scratchpad show, mode default
+  bindsym $alt+$win+t scratchpad show, mode default
   bindsym $alt+h scratchpad show, mode default
   bindsym $alt+q kill, mode default
+}
+
+mode "fullscreen" {
+  # bindings {
+    bindsym $win+f mode default, fullscreen toggle
+    bindsym $alt+$shift+r fullscreen toggle, restart
+    
+    bindsym $alt+$win+e fullscreen toggle, $emacs focus, fullscreen toggle
+    bindsym $alt+$win+b fullscreen toggle, $firefox focus, fullscreen toggle
+  # }
 }
 
 mode "$mode_stride" {
@@ -413,21 +426,17 @@ mode "$mode_stride" {
   # }
                                                                        
   # scratchpads {
-    bindsym $alt+6 scratchpad show, \
+    bindsym $alt+$win+t scratchpad show, \
             $telegram scratchpad show, \
             mode $mode_telegram
                                                                       
-    bindsym $alt+8 scratchpad show, \
-            $skype scratchpad show, \
-            mode $mode_skype
-                                                                       
     bindsym $alt+backslash scratchpad show, \
             $muhterm scratchpad show, \
             mode $mode_muhterm
                                                                        
     bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
                                                                        
-    bindsym $alt+$win+t scratchpad show, \
+    bindsym $alt+$win+o scratchpad show, \
             $muhtodo scratchpad show, \
             mode $mode_muhtodo
   # }
@@ -452,113 +461,6 @@ mode "$mode_stride" {
   bindsym $alt+q kill, mode default
 }
 
-mode "$mode_skype" {
-  # spaces {
-    bindsym $alt+1 scratchpad show, mode default, workspace $general
-    bindsym $alt+2 scratchpad show, mode default, workspace $browser
-    bindsym $alt+0 scratchpad show, mode default, workspace $misc
-    
-    bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
-    bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
-  # }
-                                                                       
-  # scratchpads {
-    bindsym $alt+6 scratchpad show, \
-            $telegram scratchpad show, \
-            mode $mode_telegram
-                                                                       
-    bindsym $alt+7 scratchpad show, \
-            $stride scratchpad show, \
-            mode $mode_stride
-
-    bindsym $alt+backslash scratchpad show, \
-            $muhterm scratchpad show, \
-            mode $mode_muhterm
-
-    bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
-
-    bindsym $alt+$win+t scratchpad show, \
-            $muhtodo scratchpad show, \
-            mode $mode_muhtodo
-  # }
-  
-  # backlight {
-    bindsym XF86MonBrightnessUp exec ~/.config/i3/backlight.sh up
-    bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
-  # }
-
-  # media {
-    bindsym XF86AudioPrev exec mpc prev
-    bindsym XF86AudioNext exec mpc next
-    bindsym XF86AudioPlay exec mpc toggle
-    bindsym XF86AudioStop exec mpc toggle
-    bindsym XF86AudioMute exec amixer -q sset Master toggle
-    bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
-    bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
-  # }
-
-  bindsym $alt+8 scratchpad show, mode default
-  bindsym $alt+h scratchpad show, mode default
-  bindsym $alt+q kill, mode default
-}
-
-mode "$mode_emacs" {
-  # spaces {
-    bindsym $alt+1 scratchpad show, mode default, workspace $general
-    bindsym $alt+2 scratchpad show, mode default, workspace $browser
-    bindsym $alt+0 scratchpad show, mode default, workspace $misc
-
-    bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
-    bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
-  # }
-
-  # scratchpads {
-    bindsym $alt+6 $emacs scratchpad show, \
-    $telegram scratchpad show, \
-    mode $mode_telegram
-
-    bindsym $alt+7 scratchpad show, \
-    $stride scratchpad show, \
-    mode $mode_stride
-
-    bindsym $alt+8 scratchpad show, \
-    $skype scratchpad show, \
-    mode $mode_skype
-
-    bindsym $alt+$win+f scratchpad show, \
-    $muhfm scratchpad show, \
-    mode $mode_muhfm
-
-    bindsym $alt+$win+t scratchpad show, \
-    $muhtodo scratchpad show, \
-    mode $mode_muhtodo
-  # }
-
-  # backlight {
-    bindsym XF86MonBrightnessUp exec ~/.config/i3/backlight.sh up
-    bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
-  # }
-
-  # media {
-    bindsym XF86AudioPrev exec mpc prev
-    bindsym XF86AudioNext exec mpc next
-    bindsym XF86AudioPlay exec mpc toggle
-    bindsym XF86AudioStop exec mpc toggle
-    bindsym XF86AudioMute exec amixer -q sset Master toggle
-    bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
-    bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
-  # }
-
-  bindsym $alt+$tab $emacs scratchpad show, \
-          mode default
-
-  bindsym $win+$alt+e $emacs scratchpad show, \
-          mode default
-          
-  bindsym $ctrl+$win+$alt+h $emacs scratchpad show, \
-          mode default
-}
-
 mode "block" {
   bindsym $alt+$ctrl+$win+q mode default
 }
@@ -567,12 +469,8 @@ mode "block" {
 # rules {
   assign $firefox → $browser
   assign [class="^jetbrains-" instance="^sun-awt-X11-XFramePeer$"] → $idea
-  assign [class="^Code$" instance="^code$"] → $emacs
-  assign [class="^Evolution$" instance="^evolution$"] → $mail
-  assign $emacs → $emacs_workspace
-
-  for_window $firefox layout tabbed
-
+  assign $evolution → $mail
+  
   for_window $telegram move scratchpad, \
              border pixel $border
 
@@ -580,8 +478,6 @@ mode "block" {
              resize set 1608 990, \
              move position 124 56, \
              scratchpad show
-
-  for_window $skype move scratchpad
 
   for_window $muhterm move scratchpad, \
              resize set 1928 1060, \
@@ -605,6 +501,6 @@ mode "block" {
   for_window [class="^Evolution$" instance="^evolution$" title="^Evolution Preferences$"] border pixel $border
   for_window [class="^Evolution$" instance="^evolution$" title="^Welcome$"] border pixel $border
   
-  for_window [class="^jetbrains-idea" instance="^sun-awt-X11-XFramePeer$"] layout tabbed
+  
 # }
 
