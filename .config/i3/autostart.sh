@@ -7,6 +7,6 @@ udiskie &
 evolution &
 firefox &
 telegram &
-st -n MUHTERM &
+st -c MUHTERM -n GLOBAL &
 st -n MUHTODO -e "muhtodo.sh" &
 idea &

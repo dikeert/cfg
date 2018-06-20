@@ -62,7 +62,7 @@ tray-transparent = false
 [bar/stumpwm]
 inherit = bar/common
 
-bottom = true
+bottom = false
 modules-left = mpd
 modules-center = 
 

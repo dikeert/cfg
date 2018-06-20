@@ -6,14 +6,16 @@
   set $enter Return
   set $tab Tab
 
-  set $term st
+  set $term "st -c MUHTERM"
   
   set $general "0 : "
+  set $misc    "10: "
+  set $mail    "11: "
+  set $terminal "12: "
 
   set $border 3
 
-  set $muhterm [class="^st-256color$" instance="^MUHTERM$"]
-  set $mode_muhterm 
+  set $muhterm [class="^MUHTERM$"]
 
   set $muhtodo [class="^st-256color$" instance="^MUHTODO$"]
   set $mode_muhtodo 
@@ -61,82 +63,86 @@
 # }
 
 # keys {
-  floating_modifier $alt
+  floating_modifier $win
+
+  # windows {
+    bindsym $alt+$win+b $firefox focus
+    bindsym $alt+$win+i $idea focus
+    bindsym $alt+$win+e $emacs focus
+    bindsym $alt+backslash $muhterm focus
+  # }
 
   # spaces {
     bindsym $alt+$win+h workspace $general
     bindsym $alt+$win+$shift+h move container to workspace $general
     
-    bindsym $alt+$win+b $firefox focus
-    bindsym $alt+$win+$shift+b move container to workspace $browser
-    
     bindsym $alt+0 workspace $misc
     bindsym $alt+$shift+0 move container to workspace $misc
 
-    bindsym $alt+$win+i workspace $idea
-    bindsym $alt+$win+$shift+i move container to workspace $idea
-    
     bindsym $alt+$win+m workspace $mail
     bindsym $alt+$win+$shift+m move container to workspace $mail
-
-    bindsym $alt+$win+e $emacs focus, mode $mode_emacs
-    bindsym $alt+$win+$shift+e move container to workspace $emacs_workspace
     
     bindsym $win+1 workspace 1
-    bindsym $win+$shift+1 move container to workspace 1
+    bindsym $win+$ctrl+1 move container to workspace 1, \
+      workspace 1
     
     bindsym $win+2 workspace 2
-    bindsym $win+$shift+2 move container to workspace 2
+    bindsym $win+$ctrl+2 move container to workspace 2, \
+      workspace 2
     
     bindsym $win+3 workspace 3
-    bindsym $win+$shift+3 move container to workspace 3
+    bindsym $win+$ctrl+3 move container to workspace 3, \
+      workspace 3
     
     bindsym $win+4 workspace 4
-    bindsym $win+$shift+4 move container to workspace 4
+    bindsym $win+$ctrl+4 move container to workspace 4, \
+      workspace 4
     
     bindsym $win+5 workspace 5
-    bindsym $win+$shift+5 move container to workspace 5
+    bindsym $win+$ctrl+5 move container to workspace 5, \
+      workspace 5
     
     bindsym $win+6 workspace 6
-    bindsym $win+$shift+6 move container to workspace 6
+    bindsym $win+$ctrl+6 move container to workspace 6, \
+      workspace 6
     
     bindsym $win+7 workspace 7
-    bindsym $win+$shift+7 move container to workspace 7
+    bindsym $win+$ctrl+7 move container to workspace 7, \
+      workspace 7
     
     bindsym $win+8 workspace 8
-    bindsym $win+$shift+8 move container to workspace 8
+    bindsym $win+$ctrl+8 move container to workspace 8, \
+      workspace 8
     
     bindsym $win+9 workspace 9
-    bindsym $win+$shift+9 move container to workspace 9
+    bindsym $win+$ctrl+9 move container to workspace 9, \
+      workspace 9
   # }
 
   # scratchpads {
     bindsym $alt+$win+t $telegram \
-    scratchpad show, \
-    mode $mode_telegram
+      scratchpad show, \
+      mode $mode_telegram
 
     bindsym $alt+7 $stride \
-    scratchpad show, \
-    mode $mode_stride
+      scratchpad show, \
+      mode $mode_stride
 
-    bindsym $alt+backslash $muhterm \
-    scratchpad show, \
-    mode $mode_muhterm
+    bindsym $alt+$win+f $muhfm \
+      scratchpad show, \
+      mode $mode_muhfm
 
-
-
-    bindsym $alt+$win+f $muhfm scratchpad show, mode $mode_muhfm
-
-    bindsym $alt+$win+o $muhtodo scratchpad show, \
-    mode $mode_muhtodo
+    bindsym $alt+$win+o $muhtodo \
+      scratchpad show, \
+      mode $mode_muhtodo
   # }
 
   # focus {
-    bindsym $alt+h exec ~/.config/i3/mouse_center.sh focus left
-    bindsym $alt+j exec ~/.config/i3/mouse_center.sh focus down
-    bindsym $alt+k exec ~/.config/i3/mouse_center.sh focus up
-    bindsym $alt+l exec ~/.config/i3/mouse_center.sh focus right
-    bindsym $alt+grave exec ~/.config/i3/mouse_center.sh focus right
+    bindsym $win+h exec ~/.config/i3/mouse_center.sh focus left
+    bindsym $win+j exec ~/.config/i3/mouse_center.sh focus down
+    bindsym $win+k exec ~/.config/i3/mouse_center.sh focus up
+    bindsym $win+l exec ~/.config/i3/mouse_center.sh focus right
+    bindsym $win+grave exec ~/.config/i3/mouse_center.sh focus right
     bindsym $alt+$tab workspace back_and_forth
   # }
 
@@ -151,17 +157,16 @@
     bindsym $ctrl+$shift+e split h, exec rofi -show run
     bindsym $ctrl+$shift+o split v, exec rofi -show run
     bindsym $win+r exec rofi -show run
-    bindsym $win+space exec rofi -show combi
-    bindsym $win+$tab exec rofi -show window
+    bindsym $win+space exec rofi -show window
     bindsym $win+y exec mpv $(rofi -dmenu -p "YouTube: " -lines 0)
   # }
 
 
   # term {
-    bindsym $alt+$shift+e split h, exec $term
-    bindsym $alt+$shift+o split v, exec $term
+    bindsym $win+$shift+e split h, exec $term
+    bindsym $win+$shift+o split v, exec $term
 
-  hide_edge_borders both    bindsym $win+$enter exec $term
+    bindsym $win+$enter exec $term
   # }
 
   # backlight {
@@ -188,11 +193,11 @@
   bindsym $alt+$ctrl+$win+b mode "block"
 
   # kill the window
-  bindsym $alt+q kill
+  bindsym $win+q kill
 
   # layouts
   bindsym $win+f mode fullscreen, fullscreen toggle
-  bindsym $win+l layout toggle splith splitv tabbed
+  bindsym $win+g layout toggle 
 
   bindsym $win+a focus parent
 
@@ -200,13 +205,13 @@
   bindsym $alt+$ctrl+$win+h scratchpad show
   
   # reload the configuration file
-  bindsym $alt+$shift+c reload
+  bindsym $win+$shift+c reload
 
   # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-  bindsym $alt+$shift+r restart
+  bindsym $win+$shift+r restart
 
   # exit i3 (logs you out of your X session)
-  bindsym $alt+$shift+q exec \
+  bindsym $win+$shift+q exec \
           "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 # }
 
@@ -215,54 +220,6 @@
 # Now, this is the part that sucks, because there is now includes/inheritance between modes
 
 # Modes
-mode "$mode_muhterm" {
-  # spaces {
-    bindsym $alt+1 scratchpad show, mode default, workspace $general
-    bindsym $alt+2 scratchpad show, mode default, workspace $browser
-    bindsym $alt+0 scratchpad show, mode default, workspace $misc
-
-    bindsym $alt+$win+i scratchpad show, mode default, workspace $idea
-    bindsym $alt+$win+m scratchpad show, mode default, workspace $mail
-  # }
-
-  # scratchpads {
-    bindsym $alt+$win+t scratchpad show, \
-            $telegram scratchpad show, \
-            mode $mode_telegram
-
-    bindsym $alt+7 scratchpad show, \
-            $stride scratchpad show, \
-            mode $mode_stride
-
-    bindsym $alt+$win+f scratchpad show, \
-            $muhfm scratchpad show, \
-            mode $mode_muhfm
-
-    bindsym $alt+$win+o scratchpad show, \
-            $muhtodo scratchpad show, \
-            mode $mode_muhtodo
-  # }
-
-
-  # backlight {
-    bindsym XF86MonBrightnessUp exec ~/.config/i3/backlight.sh up
-    bindsym XF86MonBrightnessDown exec ~/.config/i3/backlight.sh down
-  # }
-	
-  # media {
-    bindsym XF86AudioPrev exec mpc prev
-    bindsym XF86AudioNext exec mpc next
-    bindsym XF86AudioPlay exec mpc toggle
-    bindsym XF86AudioStop exec mpc toggle
-    bindsym XF86AudioMute exec amixer -q sset Master toggle
-    bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
-    bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
-  # }
-
-  bindsym $alt+backslash $muhterm scratchpad show, \
-          mode default
-}
-
 mode "$mode_muhtodo" {
   # spaces {
     bindsym $alt+1 scratchpad show, mode default, workspace $general
@@ -467,8 +424,7 @@ mode "block" {
 
 
 # rules {
-  assign $firefox → $browser
-  assign [class="^jetbrains-" instance="^sun-awt-X11-XFramePeer$"] → $idea
+  assign [class="^MUHTERM$" instance="^GLOBAL$"] → $terminal
   assign $evolution → $mail
   
   for_window $telegram move scratchpad, \
@@ -477,12 +433,6 @@ mode "block" {
   for_window $stride move scratchpad, \
              resize set 1608 990, \
              move position 124 56, \
-             scratchpad show
-
-  for_window $muhterm move scratchpad, \
-             resize set 1928 1060, \
-             move position -4 24, \
-             border pixel 0, \
              scratchpad show
 
   for_window $muhfm move scratchpad, \
@@ -494,13 +444,8 @@ mode "block" {
   for_window $pavu move scratchpad, \
              scratchpad show
 
-  for_window $anyconnect move scratchpad, \
-             scratchpad show
-
   for_window [class="^Evolution$" instance="^evolution$"] layout tabbed
   for_window [class="^Evolution$" instance="^evolution$" title="^Evolution Preferences$"] border pixel $border
   for_window [class="^Evolution$" instance="^evolution$" title="^Welcome$"] border pixel $border
-  
-  
 # }
 

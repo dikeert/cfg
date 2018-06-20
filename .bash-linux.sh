@@ -26,11 +26,25 @@ function do_tmux {
 }
 
 function do_mvn {
-	local root=$(git rev-parse --show-toplevel)
+	local root="$(git rev-parse --show-toplevel)"
+	local atl_opts="-s ${HOME}/.m2/atl.xml"
+	local opts=""
 	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
-		~/.local/bin/mvn -s ~/.m2/atl.xml $@
+		opts="${opts} ${atl_opts}"
+	fi
+
+	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d ':' -f 1) = 'bbc' ]; then
+		opts="${opts} ${atl_opts}"
+	fi
+
+	~/.local/bin/mvn ${opts} $@
+}
+
+function root_or_user_prompt {
+	if [ "$EUID" -eq 0 ]; then
+		printf '\e[31m[***ROOT***] # \033[m'
 	else
-		~/.local/bin/mvn $@
+		printf '\033[36m$ \033[m'
 	fi
 }
 
@@ -38,4 +52,4 @@ alias mvn=do_mvn
 
 
 complete -C '~/.local/bin/aws_completer' aws
-export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[\033[36m\]$ \[\033[m\]'
+export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n$(root_or_user_prompt)'

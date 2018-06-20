@@ -10,6 +10,7 @@ polybar i3 &
 feh --bg-scale ~/.config/i3/bg &
 # redshift &
 
+
 # input settings
 xinput set-prop 15 339 0, 1 # different time of acceleration for track point
 xinput set-prop 15 324 1 # acceleration value for track point
