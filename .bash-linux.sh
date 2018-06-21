@@ -40,16 +40,25 @@ function do_mvn {
 	~/.local/bin/mvn ${opts} $@
 }
 
-function root_or_user_prompt {
+function prompt_text {
 	if [ "$EUID" -eq 0 ]; then
-		printf '\e[31m[***ROOT***] # \033[m'
+		printf '[***ROOT***] # '
 	else
-		printf '\033[36m$ \033[m'
+		printf '$ '
 	fi
+}
+
+function prompt_color {
+	if [ "$EUID" -eq 0 ]; then
+		printf '\e[31m'
+	else
+		printf '\033[36m'
+	fi
+
 }
 
 alias mvn=do_mvn
 
 
 complete -C '~/.local/bin/aws_completer' aws
-export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n$(root_or_user_prompt)'
+export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[$(prompt_color)\]$(prompt_text)\[\033[m\]'
