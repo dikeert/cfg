@@ -14,6 +14,7 @@ set mouse=a
 	call dein#add('fatih/vim-go')
 	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('zchee/deoplete-go', {'build': 'make'})
+	call dein#add('dracula/vim')
 	call dein#end()
 " }
 
@@ -42,10 +43,10 @@ set mouse=a
 
 	" colorscheme, clipboard, platform specific
 	if has("unix")
-		set background=light
+		set background=dark
 		set clipboard=unnamedplus
 		try
-			colorscheme PaperColor
+			colorscheme dracula
 		catch /^Vim\%((\a\+)\)\=:E185/
 			" deal with it
 		endtry
