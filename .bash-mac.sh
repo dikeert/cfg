@@ -20,10 +20,10 @@ function do_tmux {
 	fi
 }
 
-export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[\033[36m\]$ \[\033[m\]'
+export PS1='\[$(tput setaf 4)\][$(shorten_path)]\[$(tput setaf 6)\]$(__git_ps1)\n\[\033[36m\]$ \[\033[m\]'
 
 export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LSCOLORS=ExFxBxDxCxegedabagacad
 
 function shell_session_update() { :; }
 
