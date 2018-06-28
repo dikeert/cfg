@@ -1,0 +1,45 @@
+# Basics {
+    browser firefox
+    feed-sort-order title-dec
+    player mpv
+    reload-threads 16
+		refresh-on-startup no
+		articlelist-format "%-22T| %-94t | %D " 
+		datetime-format "%b %d %y"
+		article-sort-order date asc
+		prepopulate-query-feeds "yes"
+# }
+
+# Tiny Tiny RSS {
+	urls-source "ttrss"
+	ttrss-url "https://rss.ermys.com"
+	ttrss-login "aner"
+	ttrss-passwordfile "~/.newsboat/ttrss-pw.txt"
+# }
+
+# Bindigns {
+    bind-key j next feedlist
+    bind-key k prev feedlist
+
+    bind-key j next articlelist
+    bind-key k prev articlelist
+
+    bind-key j down article
+    bind-key k up article
+
+		macro m set browser "mpv %u" ; open-in-browser ; set browser "firefox %u"
+# }
+
+# Colors {
+    color background           color7 default
+    color listnormal           color4 default
+    color listfocus            color0 color12 
+    color listnormal_unread    color4 default bold
+    color listfocus_unread     color7 color12 bold
+    color info                 color0 color4 bold
+    color article              color7 default
+# }
+
+# Filters {
+	define-filter "Folders" "tags #\"_QUERY_\""
+# }

@@ -2,11 +2,10 @@
 type = internal/memory
 interval = 10
 
-color = #4bffdc
+color = #0D8EC4
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${self.color}
-format-underline = ${self.color}
 
 label = %gb_used%
 label-foreground = ${self.color}

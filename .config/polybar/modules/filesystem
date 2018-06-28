@@ -6,9 +6,9 @@ color = ${colors.primary}
 
 mount-0 = /media/capsule
 
-label-mounted = %{A1:/home/aner/.local/bin/r /media/capsule &:}%{F#0a81f5}%{F-}%{A}
+label-mounted = %{A1:/home/aner/.local/bin/r /media/capsule &:}%{F#0a81f5}%{F-}%{A}
 label-mounted-foreground = ${self.color}
-label-unmounted = %{A1:/home/aner/.local/bin/r /media/capsule &:}%{A}
+label-unmounted = %{A1:/home/aner/.local/bin/r /media/capsule &:}%{A}
 label-unmounted-foreground = ${colors.foreground-alt}
 
 ; vim:ft=dosini

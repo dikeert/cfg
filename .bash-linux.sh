@@ -25,4 +25,40 @@ function do_tmux {
     tmux $@
 }
 
-export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[\033[36m\]$ \[\033[m\]'
+function do_mvn {
+	local root="$(git rev-parse --show-toplevel)"
+	local atl_opts="-s ${HOME}/.m2/atl.xml"
+	local opts=""
+	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
+		opts="${opts} ${atl_opts}"
+	fi
+
+	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d ':' -f 1) = 'bbc' ]; then
+		opts="${opts} ${atl_opts}"
+	fi
+
+	~/.local/bin/mvn ${opts} $@
+}
+
+function prompt_text {
+	if [ "$EUID" -eq 0 ]; then
+		printf '[***ROOT***] # '
+	else
+		printf '$ '
+	fi
+}
+
+function prompt_color {
+	if [ "$EUID" -eq 0 ]; then
+		printf '\e[31m'
+	else
+		printf '\033[36m'
+	fi
+
+}
+
+alias mvn=do_mvn
+
+
+complete -C '~/.local/bin/aws_completer' aws
+export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[$(prompt_color)\]$(prompt_text)\[\033[m\]'

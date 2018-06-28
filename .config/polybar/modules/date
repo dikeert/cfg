@@ -1,15 +1,16 @@
 [module/date]
 type = internal/date
-interval = 5
+interval = 30
 #color = #0a6cf5
-color = ${colors.primary}
+color = ${colors.foreground}
 
-date =
-date-alt = " %Y-%m-%d"
+date = "%a, %b %d"
+date-alt = "%a, %b %d"
 
 time = %H:%M
-time-alt = %H:%M:%S
+time-alt = %H:%M
 
+format-prefix = " "
 format-prefix-foreground = ${self.color}
 format-underline = ${self.color}
 

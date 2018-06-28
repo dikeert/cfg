@@ -1,11 +1,12 @@
 #!/bin/bash
 
-idea &
-code &
+xrandr --setprovideroutputsource modesetting NVIDIA-0 --auto
+
+dropbox start &
+udiskie &
 evolution &
 firefox &
-digikam &
 telegram &
-st -n MUHTERM &
-st -n MUHTODO -e "/bin/bash --login -c 'source ~/.bash-todo.sh'" &
-dropbox start
+st -c MUHTERM -n GLOBAL &
+st -n MUHTODO -e "muhtodo.sh" &
+idea &

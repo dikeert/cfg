@@ -1,12 +1,34 @@
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+interval = 2
+format-online = %{A1:mpc toggle:}<label-song> <icon-prev> <bar-progress> <icon-next>    <icon-repeat> <icon-repeatone> <icon-random>%{A}
+format-online-padding = 2
+format-paused = %{A1:mpc toggle:}<label-song> <icon-prev> <bar-progress> <icon-next>    <icon-repeat> <icon-repeatone> <icon-random>%{A}
+format-paused-foreground = ${colors.foreground-alt}
+format-offline = <label-offline>
 
-label-song-maxlen = 25
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+icon-random = 
+icon-repeat = 
+icon-repeatone = 
+
+label-song-maxlen = 45
 label-song-ellipsis = true
+label-song = "%{T0}%{T-}  %artist% - %title%  "
+
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = 
+bar-progress-empty = 
+
+label-offline = %{T0}%{T-} 
+label-offline-foreground = ${colors.foreground-alt}

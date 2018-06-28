@@ -1,11 +1,10 @@
 /* See LICENSE file for copyright and license details. */
-
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Monaco:size=10:antialias=true:autohint=true";
+char font[] = "Monaco:size=13:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
@@ -86,28 +85,28 @@ static unsigned int tabspaces = 8;
 const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#000000", /* black   */
-  [1] = "#ff5555", /* red     */
-  [2] = "#50fa7b", /* green   */
-  [3] = "#f1fa8c", /* yellow  */
-  [4] = "#bd93f9", /* blue    */
-  [5] = "#ff79c6", /* magenta */
-  [6] = "#8be9fd", /* cyan    */
-  [7] = "#bbbbbb", /* white   */
+  [0] = "#EDEDED", /* black   */
+  [1] = "#D7005F", /* red     */
+  [2] = "#718C00", /* green   */
+  [3] = "#D75F00", /* yellow  */
+  [4] = "#4271AE", /* blue    */
+  [5] = "#8959A8", /* magenta */
+  [6] = "#005F87", /* cyan    */
+  [7] = "#4D4D4C", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#44475a", /* black   */
-  [9]  = "#ff5555", /* red     */
-  [10] = "#50fa7b", /* green   */
-  [11] = "#f1fa8c", /* yellow  */
-  [12] = "#bd93f9", /* blue    */
-  [13] = "#ff79c6", /* magenta */
-  [14] = "#8be9fd", /* cyan    */
-  [15] = "#ffffff", /* white   */
+  [8]  = "#969694", /* black   */
+  [9]  = "#D7005F", /* red     */
+  [10] = "#718C00", /* green   */
+  [11] = "#D75F00", /* yellow  */
+  [12] = "#4271AE", /* blue    */
+  [13] = "#8959A8", /* magenta */
+  [14] = "#3E999F", /* cyan    */
+  [15] = "#F5F5F5", /* white   */
 
   /* special colors */
-  [256] = "#282a36", /* background */
-  [257] = "#f8f8f2", /* foreground */
+  [256] = "#EEEEEE", /* background */
+  [257] = "#005F87", /* foreground */
 };
 
 /*

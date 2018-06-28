@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+### Open emacs, empty new window or something else
+### Tries to be smart - no file, creates a new frame
+### If there is a file to open - check if we have an emacs window 
+### on current desktop. If we do - use it, if we don't - create a new one
+
+EMACS_PARAMS=""
+
+if [ $# -lt 1 ]; then
+  EMACS_PARAMS="${EMACS_PARAMS} -c"
+else
+  DESKTOP=$(wmctrl -d | grep '*' | cut -d ' ' -f 1)
+  COUNT=$(wmctrl -l -x | grep 'emacs.Emacs' | awk '{print $2}' | grep ${DESKTOP} | wc -l)
+
+  if [ ${COUNT} -lt 1 ]; then
+    EMACS_PARAMS="${EMACS_PARAMS} -c"
+  fi
+fi
+
+emacsclient ${EMACS_PARAMS} --no-wait $@

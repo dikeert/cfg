@@ -1,4 +1,5 @@
 set nocompatible
+set mouse=a
 
 " plugn manager, dein {
 	filetype off
@@ -41,24 +42,14 @@ set nocompatible
 
 	" colorscheme, clipboard, platform specific
 	if has("unix")
-		let s:uname = system("echo -n \"$(uname)\"")
-		if !v:shell_error && s:uname == "Linux"
-			try
-				colorscheme dracula
-			catch /^Vim\%((\a\+)\)\=:E185/
-				" deal with it
-			endtry
-			set background=dark
-			set clipboard=unnamedplus
-		else
-			set background=light
-			try
-				colorscheme PaperColor
-			catch /^Vim\%((\a\+)\)\=:E185/
-				" deal with it
-			endtry
-			" highlight ColorColumn ctermbg=255
-		endif
+		set background=light
+		set clipboard=unnamedplus
+		try
+			colorscheme PaperColor
+		catch /^Vim\%((\a\+)\)\=:E185/
+			" deal with it
+		endtry
+		" highlight ColorColumn ctermbg=255
 	endif
 
 	" indentation
@@ -105,7 +96,7 @@ set nocompatible
 	" }
 	
 	" ctrlp {
-		let g:ctrlp_root_markers = ['pom.xml', '.p4ignore', 'main.go']
+		let g:ctrlp_root_markers = ['.config', 'config', 'pom.xml', '.p4ignore', 'main.go', 'Makefile']
 	" }
 " }
 
@@ -118,10 +109,13 @@ set nocompatible
 	
 	map <c-k><c-b> :NERDTreeToggle<cr>
 	imap jk <Esc>
+	map <F10> :qall<cr>
 	
 	" go {
 		au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
-		au FileType go nmap <leader>gt :GoDecls<cr>
+		au FileType go nmap <leader>gg :GoDef<cr>
+		au FileType go nmap <leader>gt :GoTest<cr>
+		au FileType go nmap <leader>gb :GoBuild<cr>
 	" }
 " }
 

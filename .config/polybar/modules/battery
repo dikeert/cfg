@@ -1,11 +1,9 @@
-[module/battery]
+[battery/common]
 type = internal/battery
-battery = BAT0
 adapter = AC
 full-at = 98
 
-#color = #ffb53c
-color = #0e8fff
+color = #D7005F
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${self.color}
@@ -15,22 +13,33 @@ format-discharging-underline = ${self.color}
 label-discharging-font = 0
 label-discharging-foreground = ${self.color}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${self.color}
 format-full-underline = ${self.color}
 label-full-foreground = ${self.color}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
 ramp-capacity-foreground = ${self.color}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
 animation-charging-foreground = ${self.color}
 animation-charging-framerate = 750
 
 label-charging-foreground = ${self.color}
+
+[module/b0]
+inherit = battery/common
+battery = BAT0
+
+
+[module/b1]
+inherit = battery/common
+battery = BAT1
 
 ; vim:ft=dosini

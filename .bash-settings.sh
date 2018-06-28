@@ -27,6 +27,8 @@ source $HOME/.git-prompt.sh
 
 export PATH="${HOME}/.local/bin:${PATH}"
 
+export EDITOR=nvim
+
 # private stuff
 for f in $HOME/.bash-private/*; do
 	[[ -f "$f" ]] || continue
