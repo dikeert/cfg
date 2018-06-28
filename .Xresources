@@ -5,6 +5,7 @@ XTerm.termName: xterm-256color
 XTerm.vt100.saveLines: 104856
 XTerm*BorderWidth: 0
 
+Xft.dpi:			 120
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb

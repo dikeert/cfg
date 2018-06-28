@@ -97,7 +97,7 @@ set mouse=a
 	" }
 	
 	" ctrlp {
-		let g:ctrlp_root_markers = ['.config', 'config', 'pom.xml', '.p4ignore', 'main.go', 'Makefile']
+		let g:ctrlp_root_markers = ['.config', 'config', 'pom.xml', '.p4ignore', 'main.go', 'Makefile', 'rc.lua']
 	" }
 " }
 
