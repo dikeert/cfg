@@ -1,17 +1,24 @@
-XTerm*faceName: Monaco
-XTerm*faceSize: 10
-XTerm*scrollBar: false
-XTerm.termName: xterm-256color
-XTerm.vt100.saveLines: 104856
-XTerm*BorderWidth: 0
-
-Xft.dpi:			 120
-Xft.antialias: true
-Xft.hinting:   true
-Xft.rgba:      rgb
+Xft.dpi: 120
 Xft.hintstyle: hintfull
+Xft.autohint: 0
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
-
+XTerm*renderFont: true
+XTerm*preeditType: Root
+XTerm*xftAntialias: true
+XTerm*faceName: Droid Sans Mono
+XTerm*faceSize: 10
+XTerm*termName: xterm-256color
+XTerm*utf8: true
+XTerm*utf8Title: true
+XTerm*translations: #override \
+	Ctrl Alt <KeyPress> 0: set-vt-font(d) \n\
+	Ctrl Alt <KeyPress> +: larger-vt-font() \n\
+	Ctrl Alt <KeyPress> -: smaller-vt-font() \n\
+	Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
 
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
@@ -32,3 +39,11 @@ Xft.hintstyle: hintfull
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+
+rofi.combi-modi: window,drun
+rofi.modi: window,drun
+rofi.theme: Arc-Dark
+rofi.font: Noto Sans SemiCondensed Medium 14
+rofi.drun-icon-theme: Arc
+rofi.show-icons: true
+rofi.hide-scrollbar: true
