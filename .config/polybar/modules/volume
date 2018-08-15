@@ -1,15 +1,15 @@
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = %{A1:pavucontrol:}<label-volume> <bar-volume>%{A}
 label-volume = 
 label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = 
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-foreground = #44475a
 label-muted = 
 
-bar-volume-width = 7
+bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55

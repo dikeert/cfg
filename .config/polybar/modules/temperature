@@ -10,14 +10,14 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.color_warn}
 
-label = %temperature%
+label = %temperature-c%
 label-foreground = ${self.color_ok}
-label-warn = %temperature%
+label-warn = %temperature-c%
 label-warn-foreground = ${self.color_warn}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${self.color_warn}
 
 

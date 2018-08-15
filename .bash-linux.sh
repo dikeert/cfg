@@ -62,5 +62,5 @@ alias mvn=do_mvn
 
 complete -C '~/.local/bin/aws_completer' aws
 export PS1='\[$(tput setaf 4)\][$(shorten_path)]\[$(tput setaf 6)\]$(__git_ps1)\n\[$(prompt_color)\]$(prompt_text)\[\033[m\]'
-
+export QT_QPA_PLATFORMTHEME="qt5ct"
 

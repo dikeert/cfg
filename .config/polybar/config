@@ -1,8 +1,8 @@
 [colors]
-background = #EEEEEE
+background = #282a36
 background-alt = #DEDEDD
-foreground = #005F87
-foreground-alt = #B3D1DE
+foreground = #bd93f9
+foreground-alt = #44475a
 primary = #0073A3
 secondary = #e60053
 alert = #bd2c40
@@ -27,25 +27,27 @@ height = 28
 radius = 0.0
 fixed-center = false
 
+override-redirect = false
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 4
+line-size = 0
 line-color = #005F87b
 
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
-padding-right = 1
+padding-left = 2
+padding-right = 2
 
-module-margin-left = 0
+module-margin-left = 1
 module-margin-right = 1
 
-font-0 = FontAwesome:size=14:fontformat=truetype:antialias=true;1
-font-1 = Roboto Medium:fontformat=truetype:size=11:antialias=true;1
-font-2 = fixed:fontformat=truetype:size=11:antialias=false;1
-font-3 = file\-icons:size=14:fontformat=truetype:antialias=true;3
+font-0 = FontAwesome:size=16:fontformat=truetype:antialias=true;4
+font-1 = Noto Sans SemiCondensed Medium:fontformat=truetype:size=12:antialias=true;3
+font-2 = fixed:fontformat=truetype:size=11:antialias=false;3
+font-3 = DejaVu Sans:size=16:fontformat=truetype:antialias=true;3
 
 
 [bar/i3]
@@ -58,6 +60,18 @@ modules-right = cpu memory temperature filesystem backlight-acpi mpd volume xkey
 tray-position = hidden
 tray-padding = 5
 tray-transparent = false
+
+[bar/openbox]
+inherit = bar/common
+modules-left = mpd 
+modules-center = 
+
+modules-right = cpu memory temperature filesystem volume xkeyboard b0 b1 wlan date
+
+tray-position = none
+tray-padding = 0
+tray-transparent = false
+
 
 [bar/stumpwm]
 inherit = bar/common
@@ -87,7 +101,7 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 2
-margin-bottom = 2
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini
