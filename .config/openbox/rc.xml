@@ -398,6 +398,21 @@
         <command>pactl set-source-mute 1 toggle</command>
       </action>
     </keybind>
+    <keybind key="0xAD">
+      <action name="Execute">
+        <command>mpc prev</command>
+      </action>
+    </keybind>
+    <keybind key="0xAC">
+      <action name="Execute">
+        <command>mpc toggle</command>
+      </action>
+    </keybind>
+    <keybind key="0xAB">
+      <action name="Execute">
+        <command>mpc next</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-r">
       <action name="Execute">
@@ -455,11 +470,39 @@
         </then>
       </action>
     </keybind>
-    <!-- Thundrbird -->
+    <!-- Thunderbird -->
     <keybind key="A-W-m">
       <action name="ForEach">
         <query target="default">
           <class>Thunderbird</class>
+        </query>
+        <then>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+          <action name="Stop"/>
+        </then>
+      </action>
+    </keybind>
+    <!-- Ranger -->
+    <keybind key="A-W-f">
+      <action name="ForEach">
+        <query target="default">
+          <class>RangerFm</class>
+        </query>
+        <then>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+          <action name="Stop"/>
+        </then>
+      </action>
+    </keybind>
+    <!-- Ranger -->
+    <keybind key="A-W-i">
+      <action name="ForEach">
+        <query target="default">
+          <class>jetbrains-idea</class>
         </query>
         <then>
           <action name="Focus"/>

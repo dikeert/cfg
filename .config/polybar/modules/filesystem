@@ -4,11 +4,11 @@ interval = 25
 
 color = ${colors.primary}
 
-mount-0 = /media/capsule
+mount-0 = /mnt/capsule
 
-label-mounted = %{A1:/home/aner/.local/bin/r /media/capsule &:}%{F#0a81f5}%{F-}%{A}
+label-mounted = %{A1:/home/aner/.local/bin/r /mnt/capsule &:}%{F#0a81f5}%{F-}%{A}
 label-mounted-foreground = ${self.color}
-label-unmounted = %{A1:/home/aner/.local/bin/r /media/capsule &:}%{A}
+label-unmounted = %{A1:/home/aner/.local/bin/r /mnt/capsule &:}%{A}
 label-unmounted-foreground = #44475a
 
 ; vim:ft=dosini
