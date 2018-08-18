@@ -498,7 +498,7 @@
         </then>
       </action>
     </keybind>
-    <!-- Ranger -->
+    <!-- Idea -->
     <keybind key="A-W-i">
       <action name="ForEach">
         <query target="default">
@@ -908,6 +908,7 @@
     </application>
     <application class="st-256color" type="normal">
       <decor>no</decor>
+      <desktop>all</desktop>
     </application>
     <application class="TelegramDesktop" type="normal">
       <desktop>all</desktop>
