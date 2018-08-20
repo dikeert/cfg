@@ -232,10 +232,23 @@
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
+    <keybind key="W-q">
+      <action name="Close" />
+    </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
-      <action name="FocusToBottom"/>Д
+      <action name="FocusToBottom"/>
       <action name="Unfocus"/>
+    </keybind>
+    <keybind key="C-W-A-Right">
+      <action name="SendToDesktop">
+        <to>next</to>
+      </action>
+    </keybind>
+    <keybind key="C-W-A-Left">
+      <action name="SendToDesktop">
+        <to>previous</to>
+      </action>
     </keybind>
 
     <keybind key="W-h">
@@ -413,6 +426,11 @@
         <command>mpc next</command>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>slock</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-r">
       <action name="Execute">
@@ -433,6 +451,7 @@
       <action name="ForEach">
         <query target="default">
           <class>Firefox</class>
+          <desktop>current</desktop>
         </query>
         <then>
           <action name="Focus"/>
@@ -447,6 +466,7 @@
       <action name="ForEach">
         <query target="default">
           <class>Code</class>
+          <desktop>current</desktop>
         </query>
         <then>
           <action name="Focus"/>
@@ -475,6 +495,7 @@
       <action name="ForEach">
         <query target="default">
           <class>Thunderbird</class>
+          <desktop>current</desktop>
         </query>
         <then>
           <action name="Focus"/>
@@ -489,6 +510,7 @@
       <action name="ForEach">
         <query target="default">
           <class>RangerFm</class>
+          <desktop>current</desktop>
         </query>
         <then>
           <action name="Focus"/>
@@ -503,6 +525,7 @@
       <action name="ForEach">
         <query target="default">
           <class>jetbrains-idea</class>
+          <desktop>current</desktop>
         </query>
         <then>
           <action name="Focus"/>
@@ -517,6 +540,7 @@
       <action name="If">
         <query target="focus">
           <class>st-256color</class>
+          <desktop>current</desktop>
         </query>
         <then>
           <action name="Iconify"/>
@@ -525,6 +549,7 @@
           <action name="ForEach">
             <query target="default">
               <class>st-256color</class>
+              <desktop>current</desktop>
             </query>
             <then>
               <action name="Focus"/>
@@ -909,9 +934,13 @@
     <application class="st-256color" type="normal">
       <decor>no</decor>
       <desktop>all</desktop>
+      <skip_pager>yes</skip_pager>
+      <skip_taskbar>yes</skip_taskbar>
     </application>
     <application class="TelegramDesktop" type="normal">
       <desktop>all</desktop>
+      <skip_pager>yes</skip_pager>
+      <skip_taskbar>yes</skip_taskbar>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
