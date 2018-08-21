@@ -3,7 +3,7 @@ type = internal/mpd
 
 interval = 2
 format-online = %{A1:mpc toggle:}<label-song> <icon-prev> <bar-progress> <icon-next>    <icon-repeat> <icon-repeatone> <icon-random>%{A}
-format-online-padding = 2
+format-online-padding = 0
 format-paused = %{A1:mpc toggle:}<label-song> <icon-prev> <bar-progress> <icon-next>    <icon-repeat> <icon-repeatone> <icon-random>%{A}
 format-paused-foreground = ${colors.foreground-alt}
 format-offline = <label-offline>
