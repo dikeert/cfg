@@ -11,28 +11,20 @@
     <!-- always try to focus new windows when they appear. other rules do
        apply -->
     <followMouse>no</followMouse>
-    <!-- move focus to a window when you move the mouse into it -->
-    <focusLast>yes</focusLast>
-    <!-- focus the last used window when changing desktops, instead of the one
-       under the mouse pointer. when followMouse is enabled -->
-    <underMouse>no</underMouse>
-    <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>200</focusDelay>
-    <!-- when followMouse is enabled, the mouse must be inside the window for
-       this many milliseconds (1000 = 1 sec) before moving focus to it -->
-    <raiseOnFocus>no</raiseOnFocus>
-    <!-- when followMouse is enabled, and a window is given focus by moving the
-       mouse into it, also raise the window -->
   </focus>
-  <placement><policy>Smart</policy><!-- 'Smart' or 'UnderMouse' --><center>yes</center><!-- whether to place windows in the center of the free area found or
-       the top left corner --><monitor>Primary</monitor><!-- with Smart placement on a multi-monitor system, try to place new windows
+  <placement>
+    <policy>Smart</policy><!-- 'Smart' or 'UnderMouse' -->
+    <center>yes</center><!-- whether to place windows in the center of the free area found or the top left corner -->
+    <monitor>Primary</monitor><!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
-       the active window is, 'Primary' - only on the primary monitor --><primaryMonitor>1</primaryMonitor>0
-                      <!-- The monitor where Openbox should place popup dialogs such as the
+       the active window is, 'Primary' - only on the primary monitor -->
+    <primaryMonitor>Mouse</primaryMonitor>
+    <!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
        following: 'Mouse' - where the mouse is, or
-                  'Active' - where the active window is --></placement>
+                  'Active' - where the active window is -->
+  </placement>
   <theme>
     <name>Arc-Darker-solid</name>
     <titleLayout>CILM</titleLayout>
@@ -47,7 +39,7 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Noto Sans</name>
       <size>10</size>
@@ -112,13 +104,12 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>1</number>
+    <number>3</number>
     <firstdesk>1</firstdesk>
     <names>
-      <!-- set names up here if you want to, like this:
-    <name>desktop 1</name>
-    <name>desktop 2</name>
-    -->
+      <name>main</name>
+      <name>cfg</name>
+      <name>atl</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -171,51 +162,59 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
+    <keybind key="C-W-h">st-256color
+      <action name="If">
+        <query>
+          <class>TelegramDesktop</class>
+        </query>
+        <then>
+          <action name="Iconify" />
+        </then>
+      </action>
+      <action name="If">
+        <query>
+          <class>st-256color</class>
+        </query>
+        <then>
+          <action name="Iconify" />
+        </then>
+      </action>
       <action name="GoToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="C-W-l">
+      <action name="If">
+        <query>
+          <class>TelegramDesktop</class>
+        </query>
+        <then>
+          <action name="Iconify" />
+        </then>
+      </action>
+      <action name="If">
+        <query>
+          <class>st-256color</class>
+        </query>
+        <then>
+          <action name="Iconify" />
+        </then>
+      </action>
       <action name="GoToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Up">
-      <action name="GoToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Down">
-      <action name="GoToDesktop">
-        <to>down</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="S-W-h">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="S-W-l">
       <action name="SendToDesktop">
         <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Up">
-      <action name="SendToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Down">
-      <action name="SendToDesktop">
-        <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
@@ -233,16 +232,8 @@
       <action name="RemoveDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
-    <keybind key="A-F4">
-      <action name="Close"/>
-    </keybind>
     <keybind key="W-q">
       <action name="Close" />
-    </keybind>
-    <keybind key="A-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
     </keybind>
 
     <keybind key="W-h">
@@ -328,17 +319,6 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
     <keybind key="W-Tab">
       <action name="Execute">
         <startupnotify>
@@ -346,27 +326,6 @@
           <name>rofi-window</name>
         </startupnotify>
         <command>rofi -show windowcd</command>
-      </action>
-    </keybind>
-    <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="W-S-Right">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Left">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Up">
-      <action name="DirectionalCycleWindows">
-        <direction>up</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Down">
-      <action name="DirectionalCycleWindows">
-        <direction>down</direction>
       </action>
     </keybind>
     <!-- Keybindings for managing OpenBox -->
@@ -379,7 +338,10 @@
         <command>/home/aner/.local/bin/backlight.sh up</command>
       </action>
     </keybind>
-    <keybind key="0xE8"><action name="Execute"><command>/home/aner/.local/bin/backlight.sh down</command></action>sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+    <keybind key="0xE8">
+      <action name="Execute">
+        <command>/home/aner/.local/bin/backlight.sh down</command>
+      </action>
     </keybind>
     <!-- mute output -->
     <keybind key="0x79">
@@ -518,7 +480,7 @@
     <keybind key="A-W-i">
       <action name="ForEach">
         <query target="default">
-          <class>jetbrains-idea</class>
+          <class type="pattern">jetbrains-*</class>
           <desktop>current</desktop>
         </query>
         <then>
@@ -569,14 +531,7 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <mousebind button="A-Left" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-      </mousebind>
-      <mousebind button="A-Left" action="Click">
-        <action name="Unshade"/>
-      </mousebind>
-      <mousebind button="A-Left" action="Drag">
+      <mousebind button="W-Left" action="Drag">
         <action name="Move"/>
       </mousebind>
       <mousebind button="A-Right" action="Press">
@@ -584,13 +539,8 @@
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
-      <mousebind button="A-Right" action="Drag">
+      <mousebind button="W-Right" action="Drag">
         <action name="Resize"/>
-      </mousebind>
-      <mousebind button="A-Middle" action="Press">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
       </mousebind>
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
@@ -602,26 +552,6 @@
           <to>next</to>
         </action>
       </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Up" action="Click">
-        <action name="SendToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Down" action="Click">
-        <action name="SendToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
     </context>
     <context name="Titlebar">
       <mousebind button="Left" action="Drag">
@@ -630,37 +560,12 @@
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximize"/>
       </mousebind>
-      <mousebind button="Up" action="Click">
-        <action name="if">
-          <shaded>no</shaded>
-          <then>
-            <action name="Shade"/>
-            <action name="FocusToBottom"/>
-            <action name="Unfocus"/>
-            <action name="Lower"/>
-          </then>
-        </action>
-      </mousebind>
-      <mousebind button="Down" action="Click">
-        <action name="if">
-          <shaded>yes</shaded>
-          <then>
-            <action name="Unshade"/>
-            <action name="Raise"/>
-          </then>
-        </action>
-      </mousebind>
     </context>
     <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
         <action name="Unshade"/>
-      </mousebind>
-      <mousebind button="Middle" action="Press">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
       </mousebind>
       <mousebind button="Right" action="Press">
         <action name="Focus"/>
@@ -752,18 +657,6 @@
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
-      <mousebind button="Left" action="Click">
-        <action name="ToggleOmnipresent"/>
-      </mousebind>
-    </context>
-    <context name="Shade">
-      <mousebind button="Left" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-      </mousebind>
-      <mousebind button="Left" action="Click">
-        <action name="ToggleShade"/>
-      </mousebind>
     </context>
     <context name="Iconify">
       <mousebind button="Left" action="Press">
@@ -815,36 +708,6 @@
       </mousebind>
     </context>
     <context name="Desktop">
-      <mousebind button="Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -864,28 +727,6 @@
       <mousebind button="Right" action="Press">
         <action name="ShowMenu">
           <menu>root-menu</menu>
-        </action>
-      </mousebind>
-    </context>
-    <context name="MoveResize">
-      <mousebind button="Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
         </action>
       </mousebind>
     </context>
@@ -920,6 +761,9 @@
       <focus>yes</focus>
     </applicaiton>
     <application class="Firefox" type="normal">
+      <decor>no</decor>
+    </application>
+    <application class="jetbrains-*" type="normat">
       <decor>no</decor>
     </application>
     <application class="Code" type="normal">
