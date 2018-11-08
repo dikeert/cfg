@@ -4,7 +4,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Monaco:size=13:antialias=true:autohint=true";
+char font[] = "Monaco:size=10:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
