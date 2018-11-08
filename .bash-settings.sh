@@ -7,8 +7,7 @@ esac
 
 # GO
 export GOROOT="${HOME}/.local/go"
-export GOPATH="${HOME}/Projects/Go"
-export GOBIN="${HOME}/.local/bin"
+export GOPATH="${HOME}/Projects/go"
 export PATH="${GOPATH}/bin:${GOROOT}/bin:${PATH}"
 
 # Todo.TXT

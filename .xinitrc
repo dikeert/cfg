@@ -13,6 +13,10 @@ compton &
 
 feh --bg-scale ~/Pictures/Wallpapers/Art/alena-aenami-dreamer-1k.png
 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) 
+export SSH_AUTH_SOCK
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
 sh -c "sleep 1s; polybar openbox" &
 
 openbox

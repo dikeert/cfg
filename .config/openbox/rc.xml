@@ -13,9 +13,12 @@
     <followMouse>no</followMouse>
   </focus>
   <placement>
-    <policy>Smart</policy><!-- 'Smart' or 'UnderMouse' -->
-    <center>yes</center><!-- whether to place windows in the center of the free area found or the top left corner -->
-    <monitor>Primary</monitor><!-- with Smart placement on a multi-monitor system, try to place new windows
+    <policy>Smart</policy>
+    <!-- 'Smart' or 'UnderMouse' -->
+    <center>yes</center>
+    <!-- whether to place windows in the center of the free area found or the top left corner -->
+    <monitor>Primary</monitor>
+    <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is, 'Primary' - only on the primary monitor -->
     <primaryMonitor>Mouse</primaryMonitor>
@@ -163,26 +166,9 @@
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-W-h">st-256color
-      <action name="If">
-        <query>
-          <class>TelegramDesktop</class>
-        </query>
-        <then>
-          <action name="Iconify" />
-        </then>
-      </action>
-      <action name="If">
-        <query>
-          <class>st-256color</class>
-        </query>
-        <then>
-          <action name="Iconify" />
-        </then>
-      </action>
-      <action name="GoToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
+      <action name="If"><query><class>TelegramDesktop</class></query><then><action name="Iconify"/></then></action>
+      <action name="If"><query><class>st-256color</class></query><then><action name="Iconify"/></then></action>
+      <action name="GoToDesktop"><to>left</to><wrap>no</wrap></action>
     </keybind>
     <keybind key="C-W-l">
       <action name="If">
@@ -190,7 +176,7 @@
           <class>TelegramDesktop</class>
         </query>
         <then>
-          <action name="Iconify" />
+          <action name="Iconify"/>
         </then>
       </action>
       <action name="If">
@@ -198,7 +184,7 @@
           <class>st-256color</class>
         </query>
         <then>
-          <action name="Iconify" />
+          <action name="Iconify"/>
         </then>
       </action>
       <action name="GoToDesktop">
@@ -233,14 +219,13 @@
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="W-q">
-      <action name="Close" />
+      <action name="Close"/>
     </keybind>
-
     <keybind key="W-h">
       <action name="Iconify"/>
     </keybind>
     <keybind key="C-W-A-h">
-      <action name="Unmaximize" />
+      <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>+-0</x>
         <y>center</y>
@@ -298,7 +283,7 @@
       </action>
     </keybind>
     <keybind key="C-W-A-f">
-      <action name="GrowToFill" />
+      <action name="GrowToFill"/>
     </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
@@ -450,7 +435,7 @@
     <keybind key="A-W-m">
       <action name="ForEach">
         <query target="default">
-          <class>Thunderbird</class>
+          <class>Evolution</class>
           <desktop>current</desktop>
         </query>
         <then>
@@ -757,18 +742,22 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <applicaiton class="*">
+    <application class="*">
       <focus>yes</focus>
-    </applicaiton>
+    </application>
     <application class="Firefox" type="normal">
       <decor>no</decor>
+    </application>
+    <application class="Evolution-alarm-notify">
+      <desktop>all</desktop>
+      <layer>above</layer>
     </application>
     <application class="jetbrains-*" type="normat">
       <decor>no</decor>
     </application>
     <application class="Code" type="normal">
       <decor>no</decor>
-    </application>  
+    </application>
     <application class="st-256color" type="normal">
       <decor>no</decor>
       <desktop>all</desktop>
