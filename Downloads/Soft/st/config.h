@@ -4,7 +4,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Droid Sans Mono:size=10:antialias=true:autohint=true";
+char font[] = "FuraCode Nerd Font:size=11:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
