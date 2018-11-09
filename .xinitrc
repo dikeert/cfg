@@ -9,7 +9,7 @@ xrandr --output eDP-1-1 --right-of DP-1-1
 xrdb -load ~/.Xresources
 setxkbmap -layout us,ru -option grp:win_space_toggle
 
-compton &
+compton --config ~/.config/compton.conf &
 
 feh --bg-scale ~/Pictures/Wallpapers/Art/alena-aenami-dreamer-1k.png
 

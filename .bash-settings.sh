@@ -11,10 +11,8 @@ export GOPATH="${HOME}/Projects/go"
 export PATH="${GOPATH}/bin:${GOROOT}/bin:${PATH}"
 
 # Todo.TXT
-if [ -f ~/.local/share/completions/todo_completion ]; then
-    source ~/.local/share/completions/todo_completion
-    complete -F _todo t
-fi
+# source ~/.local/share/completions/todo_completion
+# complete -F _todo t
 
 # MAVEN, JAVA
 export MAVEN_OPTS="-Xmx4096m"
