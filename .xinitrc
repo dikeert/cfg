@@ -2,6 +2,7 @@
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrandr --dpi 120
