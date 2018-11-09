@@ -12,7 +12,6 @@ time-alt = %H:%M
 
 format-prefix = " "
 format-prefix-foreground = ${self.color}
-format-underline = ${self.color}
 
 label = %date% %time%
 label-foreground = ${self.color}

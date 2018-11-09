@@ -29,12 +29,14 @@ function do_mvn {
 	local root="$(git rev-parse --show-toplevel)"
 	local atl_opts="-s ${HOME}/.m2/atl.xml"
 	local opts=""
-	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
-		opts="${opts} ${atl_opts}"
-	fi
+	if [ -f "${root}/.git/config" ]; then
+		if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
+			opts="${opts} ${atl_opts}"
+		fi
 
-	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d ':' -f 1) = 'bbc' ]; then
-		opts="${opts} ${atl_opts}"
+		if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d ':' -f 1) = 'bbc' ]; then
+			opts="${opts} ${atl_opts}"
+		fi
 	fi
 
 	~/.local/bin/mvn ${opts} $@
