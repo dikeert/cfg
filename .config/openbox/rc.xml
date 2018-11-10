@@ -438,7 +438,7 @@
 		<!--{{{ Terminal -->
     <keybind key="W-Return">
       <action name="Execute">
-        <command>sh -c "konsole --new-tab"</command>
+				<command>sh -c "~/.local/bin/st"</command>
       </action>
 		</keybind><!--}}}-->
 		<!--{{{ Firefox -->
@@ -530,8 +530,8 @@
         </then>
       </action>
 		</keybind><!--}}}-->
+		<!--{{{ ST -->
     <keybind key="A-0x33">
-			<!--{{{ ST -->
       <action name="If">
         <query target="focus">
           <class>st-256color</class>
@@ -554,36 +554,10 @@
             </then>
           </action>
         </else>
-			</action><!--}}}-->
-			<!--{{{Konsole -->
-			<action name="If">
-				<query target="focus">
-					<class>konsole</class>
-					<title type="pattern">aner * Konsole</title>
-					<desktop>current</desktop>
-				</query>
-				<then>
-					<action name="Iconify"/>
-				</then>
-				<else>
-					<action name="ForEach">
-						<query target="default">
-							<class>konsole</class>
-							<title type="pattern">aner * Konsole</title>
-						</query>
-						<then>
-							<action name="Focus"/>
-							<action name="Raise"/>
-							<action name="Unshade"/>
-							<action name="Stop"/>
-						</then>
-					</action>
-				</else>
-			</action><!--}}}-->
-		</keybind>
+			</action>
+		</keybind><!--}}}-->
+		<!--}}}-->
 	</keyboard><!--}}}-->
-	<!--}}}-->
-	<!--}}}-->
 	<!--{{{ Mouse -->
   <mouse>
     <!-- number of pixels the mouse must move before a drag begins -->
@@ -851,15 +825,11 @@
       <decor>no</decor>
       <desktop>all</desktop>
       <skip_pager>yes</skip_pager>
-		</application>
-		<application class="konsole" type="normal" title="aner * Konsole">
-			<decor>no</decor>
-			<desktop>all</desktop>
-			<skip_pager>yes</skip_pager>
-		</application>
-		<application class="konsole" type="normal" title="* : nvim ? Konsole">
-			<decor>no</decor>
 		</application><!--}}}-->
+		<!--{{{ Nvim -->
+		<application class="st-256color-nvim" type="normal">
+			<decor>no</decor>
+		</application>
 		<!--{{{ Telegram -->
     <application class="TelegramDesktop" type="normal">
       <desktop>all</desktop>
