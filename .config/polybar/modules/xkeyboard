@@ -1,14 +1,15 @@
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
+  
 
 format-prefix = "⌨ "
-format-prefix-foreground = #50fa7b
+format-prefix-foreground = #3e989f
 
 
 label-layout = %layout%
 label-layout-font = 1
-label-layout-foreground = #50fa7b
+label-layout-foreground = #3e989f
 
 label-indicator-padding = 2
 label-indicator-margin = 1

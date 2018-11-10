@@ -23,7 +23,7 @@ label-song-ellipsis = true
 label-song = "%{T0}%{T-}  %artist% - %title%  "
 
 toggle-on-foreground = ${colors.foreground}
-toggle-off-foreground = #55
+toggle-off-foreground = ${colors.foreground-alt}
 
 bar-progress-width = 10
 bar-progress-indicator = |

@@ -3,8 +3,8 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-color_ok = #129668
-color_warn = #f50a4d
+color_ok = #3e989f
+color_warn = #d6225e
 
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>

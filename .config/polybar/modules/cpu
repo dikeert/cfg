@@ -2,7 +2,7 @@
 type = internal/cpu
 interval = 3
 
-color = #0D8EC4
+color = #4271ad
 
 format = <ramp-coreload> <label> 
 format-prefix-foreground = ${self.color}

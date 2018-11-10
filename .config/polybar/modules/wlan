@@ -3,7 +3,7 @@ type = internal/network
 interface = wlp4s0
 interval = 5.0
 
-color = #ff5555
+color = #4271ad
 
 format-connected = <label-connected>
 label-connected = %{A1:/bin/bash -c rofi-wifi-menu.sh:} %essid%%{A}

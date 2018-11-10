@@ -13,15 +13,16 @@ pin-workspaces = true
 ; Default: true
 enable-click = true
 
-icon-default = 
+icon-default = 
 
 ; Create scroll handlers used to cycle desktops
 ; Default: true
 enable-scroll = false
 
-format-foreground = "#FF0088"
+format-foreground = "#eeeeed"
+format-background = "#d6225e"
 
-label-active = %{T5}%icon%  %name%%{T-}
+label-active = %{T5}  %index%  %{T-}
 label-empty =
 label-occupied =
 label-urgent =

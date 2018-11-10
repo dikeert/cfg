@@ -3,7 +3,7 @@ type = internal/battery
 adapter = AC
 full-at = 98
 
-color = #ff79c6
+color = #d6225e
 
 format-charging = <animation-charging> <label-charging>
 
