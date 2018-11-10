@@ -2,7 +2,7 @@
 DefaultProfile=Def.profile
 
 [Favorite Profiles]
-Favorites=Def.profile
+Favorites=
 
 [KonsoleWindow]
 ShowMenuBarByDefault=false

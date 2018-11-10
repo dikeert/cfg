@@ -11,6 +11,7 @@
 	call dein#add('fatih/vim-go')
 	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('nathanaelkane/vim-indent-guides')
+	call dein#add('easymotion/vim-easymotion')
 	call dein#add('zchee/deoplete-go', {'build': 'make'})
 	call dein#end()
 "}}}
