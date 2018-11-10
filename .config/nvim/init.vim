@@ -54,6 +54,9 @@
 	" Ignore these directories
 	set wildignore+=*/target/**,*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip  
 
+	" autosave
+	autocmd TextChanged,TextChangedI <buffer> silent write
+
 	let &colorcolumn=join(range(81,999),",")
 	hi Visual term=reverse cterm=reverse guibg=Grey
 "}}}

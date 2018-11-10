@@ -24,8 +24,7 @@
        from 1, specifying a particular monitor.  Or it can be one of the
        following: 'Mouse' - where the mouse is, or
                   'Active' - where the active window is -->
-  </placement>
-	<!--}}}-->
+  </placement><!--}}}-->
 	<!--{{{ Theme -->
   <theme>
     <name>Arc-Darker-solid</name>
@@ -52,8 +51,7 @@
       <weight>Bold</weight>
       <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
-    </font>
-		<!--}}}-->
+    </font><!--}}}-->
 		<!--{{{ Inactive Window -->
     <font place="InactiveWindow">
       <name>Noto Sans</name>
@@ -63,8 +61,7 @@
       <weight>SemiCondensed Bold</weight>
       <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
-		</font>
-		<!--}}}-->
+		</font><!--}}}-->
 		<!--{{{ Menu Header -->
     <font place="MenuHeader">
       <name>Noto Sans</name>
@@ -74,8 +71,7 @@
       <!-- 'bold' or 'normal' -->
       <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
-    </font>
-		<!--}}}-->
+    </font><!--}}}-->
 		<!--{{{ Menu Item -->
     <font place="MenuItem">
       <name>Noto Sans</name>
@@ -85,8 +81,7 @@
       <weight>SemiCondensed Medium</weight>
       <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
-    </font>
-		<!--}}}-->
+    </font><!--}}}-->
 		<!--{{{ Active On Screen Display -->
     <font place="ActiveOnScreenDisplay">
       <name>Noto Sans</name>
@@ -96,8 +91,7 @@
       <weight>SemiCondensed Bold</weight>
       <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
-    </font>
-		<!--}}}-->
+    </font><!--}}}-->
 		<!--{{{ Inactive On Screen Display -->
     <font place="InactiveOnScreenDisplay">
       <name>Noto Sans</name>
@@ -107,11 +101,9 @@
       <weight>SemiCondensed Bold</weight>
       <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
-    </font>
+    </font><!--}}}-->
 		<!--}}}-->
-		<!--}}}-->
-  </theme>
-	<!--}}}-->
+  </theme><!--}}}-->
 	<!--{{{ Desktops-->
   <desktops>
     <!-- this stuff is only used at startup, pagers allow you to change them
@@ -126,8 +118,7 @@
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
     <popupTime>875</popupTime>
-  </desktops>
-	<!--}}}-->
+  </desktops><!--}}}-->
 	<!--{{{ Resize-->
   <resize>
     <drawContents>yes</drawContents>
@@ -144,8 +135,7 @@
          distance from bottom edge, or 'Center' -->
       <y>10</y>
     </popupFixedPosition>
-  </resize>
-	<!--}}}-->
+  </resize><!--}}}-->
 	<!--{{{ Margins -->
   <margins>
 		<!-- You can reserve a portion of your screen where windows will not cover when
@@ -156,8 +146,7 @@
     <bottom>10</bottom>
     <left>10</left>
     <right>10</right>
-  </margins>
-	<!--}}}-->
+  </margins><!--}}}-->
 	<!--{{{ Dock -->
   <dock>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
@@ -176,13 +165,12 @@
     <showDelay>300</showDelay>
     <!-- 'Left', 'Middle', 'Right' -->
     <moveButton>Middle</moveButton>
-  </dock>
-	<!--}}}-->
+  </dock><!--}}}-->
+	<!--{{{ Keyboard -->
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- Keybindings for desktop switching -->
-
-    <!-- Go to the desktop on the left -->
+		<!--{{{ Desktop Switching -->
+		<!--{{{ Go Left -->
     <keybind key="C-W-h">
       <action name="If"> <!-- hide omnipresent window to avoid confusion -->
         <query>
@@ -204,9 +192,8 @@
         <to>left</to>
         <wrap>no</wrap>
       </action>
-    </keybind>
-    <!-- -->
-    <!-- Go to the dektop on the right -->
+    </keybind><!--}}}-->
+		<!--{{{ Go Right -->
     <keybind key="C-W-l">
       <action name="If"> <!-- hide omnipresent window to avoid confusion -->
         <query>
@@ -228,41 +215,50 @@
         <to>right</to>
         <wrap>no</wrap>
       </action>
-    </keybind>
-    <!-- Send window to the desktop on the left -->
+    </keybind><!--}}}-->
+		<!--{{{ Send Left -->
     <keybind key="S-W-h">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
-    </keybind>
-    <!-- Send window to the desktop on the right -->
+    </keybind><!--}}}-->
+		<!--{{{ Send Right -->
     <keybind key="S-W-l">
       <action name="SendToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
-    </keybind>
+    </keybind><!--}}}-->
+		<!--{{{ Show Desktop-->
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
-    </keybind>
-    <keybind key="W-0x15">
+    </keybind><!--}}}-->
+		<!--{{{ Add Desktop-->
+		<keybind key="W-0x15"> <!-- win+plus sign (actually equals sign) -->
       <action name="AddDesktop"/>
       <action name="GoToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
-    </keybind>
+    </keybind><!--}}}-->
+		<!--{{{ Remove Desktop -->
     <keybind key="W-0x14">
       <action name="RemoveDesktop"/>
-    </keybind>
-    <!-- Keybindings for windows -->
+    </keybind><!--}}}-->
+		<!--}}}-->
+		<!--{{{ Windows Actions-->
+		<!--{{{ Close-->
     <keybind key="W-q">
       <action name="Close"/>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Minimize(Iconify)-->
     <keybind key="W-h">
       <action name="Iconify"/>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--}}}-->
+		<!--{{{ Windows Resizing -->
+		<!-- {{{ Narrow Window on the Left -->
     <keybind key="C-W-A-h">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -271,7 +267,8 @@
         <width>25/100</width>
         <height>80/100</height>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Shrink Window -->
     <keybind key="C-W-A-j">
       <action name="If">
         <query>
@@ -305,7 +302,8 @@
           </action>
         </else>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Grow Window-->
     <keybind key="C-W-A-k">
       <action name="If">
         <query>
@@ -320,11 +318,14 @@
           </action>
         </else>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ As Big As Possible -->
     <keybind key="C-W-A-f">
       <action name="GrowToFill"/>
-    </keybind>
-    <!-- Keybindings for window switching -->
+		</keybind><!--}}}-->
+		<!--}}}-->
+		<!--{{{ Window Switching -->
+		<!--{{{ Next Windows-->
     <keybind key="A-Tab">
       <action name="NextWindow">
         <finalactions>
@@ -333,7 +334,8 @@
           <action name="Unshade"/>
         </finalactions>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Previous Window -->
     <keybind key="A-S-Tab">
       <action name="PreviousWindow">
         <finalactions>
@@ -342,7 +344,8 @@
           <action name="Unshade"/>
         </finalactions>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Find a Window -->
     <keybind key="W-Tab">
       <action name="Execute">
         <startupnotify>
@@ -351,67 +354,78 @@
         </startupnotify>
         <command>rofi -show windowcd</command>
       </action>
-    </keybind>
-    <!-- Keybindings for managing OpenBox -->
+		</keybind><!--}}}-->
+		<!--}}}-->
+		<!--{{{ Manage OpenBox -->
+		<!--{{{ Reconfigure -->
     <keybind key="W-F11">
       <action name="Reconfigure"/>
-    </keybind>
-    <!-- Keybindings for managing system -->
-    <keybind key="0xE9">
+		</keybind><!--}}}-->
+		<!--}}}-->
+		<!--{{{ Manage System-->
+		<!--{{{ Backlight Up-->
+		<keybind key="0xE9"><!-- backlight up -->
       <action name="Execute">
         <command>/home/aner/.local/bin/backlight.sh up</command>
       </action>
-    </keybind>
-    <keybind key="0xE8">
+		</keybind><!--}}}-->
+		<!--{{{ Backlight Down-->
+		<keybind key="0xE8"><!--backlight down -->
       <action name="Execute">
         <command>/home/aner/.local/bin/backlight.sh down</command>
       </action>
-    </keybind>
-    <!-- mute output -->
+		</keybind><!--}}}-->
+		<!--{{{ Mute Output -->
     <keybind key="0x79">
       <action name="Execute">
         <command>pactl set-sink-mute 0 toggle</command>
       </action>
-    </keybind>
-    <!-- volume down -->
+		</keybind><!--}}}-->
+		<!--{{{ Volume Down -->
     <keybind key="0x7A">
       <action name="Execute">
         <command>sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"</command>
       </action>
-    </keybind>
-    <!-- volume up -->
+		</keybind><!--}}}-->
+		<!--{{{ Volume Up -->
     <keybind key="0x7B">
       <action name="Execute">
         <command>sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"</command>
       </action>
-    </keybind>
-    <!-- mute intput -->
+		</keybind><!--}}}-->
+		<!--{{{ Mute Input -->
     <keybind key="0xC6">
       <action name="Execute">
         <command>pactl set-source-mute 1 toggle</command>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Media Previous-->
     <keybind key="0xAD">
       <action name="Execute">
         <command>mpc prev</command>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Media Toggle -->
     <keybind key="0xAC">
       <action name="Execute">
         <command>mpc toggle</command>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Media Next -->
     <keybind key="0xAB">
       <action name="Execute">
         <command>mpc next</command>
       </action>
-    </keybind>
+		</keybind><!--}}}-->
+		<!--{{{ Lock Station -->
     <keybind key="W-l">
       <action name="Execute">
         <command>slock</command>
       </action>
-    </keybind>
-    <!-- Keybindings for running applications -->
+		</keybind><!--}}}-->
+		<!--}}}-->
+		<!--{{{ Apps-->
+		<!--{{{ Run -->
     <keybind key="W-r">
       <action name="Execute">
         <startupnotify>
@@ -420,13 +434,14 @@
         </startupnotify>
         <command>rofi -show drun</command>
       </action>
-    </keybind>
+		</keybind><!--}}} -->
+		<!--{{{ Terminal -->
     <keybind key="W-Return">
       <action name="Execute">
         <command>sh -c "~/.local/bin/st"</command>
       </action>
-    </keybind>
-    <!-- Firefox -->
+		</keybind><!--}}}-->
+		<!--{{{ Firefox -->
     <keybind key="A-W-b">
       <action name="ForEach">
         <query target="default">
@@ -440,8 +455,8 @@
           <action name="Stop"/>
         </then>
       </action>
-    </keybind>
-    <!-- VS Code -->
+		</keybind><!--}}}-->
+		<!--{{{ VS Code -->
     <keybind key="A-W-v">
       <action name="ForEach">
         <query target="default">
@@ -455,8 +470,8 @@
           <action name="Stop"/>
         </then>
       </action>
-    </keybind>
-    <!-- Telegram -->
+		</keybind><!--}}}-->
+		<!--{{{ Telegram -->
     <keybind key="A-W-t">
       <action name="ForEach">
         <query target="default">
@@ -469,8 +484,8 @@
           <action name="Stop"/>
         </then>
       </action>
-    </keybind>
-    <!-- Thunderbird -->
+		</keybind><!--}}} -->
+		<!--{{{ Thunderbird -->
     <keybind key="A-W-m">
       <action name="ForEach">
         <query target="default">
@@ -484,8 +499,8 @@
           <action name="Stop"/>
         </then>
       </action>
-    </keybind>
-    <!-- Ranger -->
+		</keybind><!--}}}-->
+		<!--{{{ Ranger -->
     <keybind key="A-W-f">
       <action name="ForEach">
         <query target="default">
@@ -499,8 +514,8 @@
           <action name="Stop"/>
         </then>
       </action>
-    </keybind>
-    <!-- Idea -->
+		</keybind><!--}}}-->
+		<!--{{{ JetBrains -->
     <keybind key="A-W-i">
       <action name="ForEach">
         <query target="default">
@@ -514,8 +529,8 @@
           <action name="Stop"/>
         </then>
       </action>
-    </keybind>
-    <!-- ST -->
+		</keybind><!--}}}-->
+		<!--{{{ ST -->
     <keybind key="A-0x33">
       <action name="If">
         <query target="focus">
@@ -541,85 +556,85 @@
         </else>
       </action>
     </keybind>
-  </keyboard>
+	</keyboard><!--}}}-->
+	<!--}}}-->
+	<!--}}}-->
+	<!--{{{ Mouse -->
   <mouse>
-    <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
-    <doubleClickTime>500</doubleClickTime>
+    <dragThreshold>1</dragThreshold>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <doubleClickTime>500</doubleClickTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
-    <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
-    <!-- Set this to TRUE to move the mouse pointer across the desktop when
+		<screenEdgeWarpTime>400</screenEdgeWarpTime>
+		<!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
-    <context name="Frame">
+		<screenEdgeWarpMouse>false</screenEdgeWarpMouse>
+		<!--{{{ Frame -->
+		<context name="Frame">
+			<!--{{{ Move Window -->
       <mousebind button="W-Left" action="Drag">
         <action name="Move"/>
-      </mousebind>
-      <mousebind button="A-Right" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </mousebind>
-      <mousebind button="W-Right" action="Drag">
+			</mousebind><!--}}}-->
+			<!--{{{ Resize Window -->
+			<mousebind button="W-Right" action="Drag">
         <action name="Resize"/>
-      </mousebind>
-      <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-    </context>
+			</mousebind><!--}}}-->
+		</context><!--}}}-->
+		<!--{{{ Titlebar -->
     <context name="Titlebar">
+			<!--{{{ Move Window -->
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
-      </mousebind>
+			</mousebind><!--}}}-->
+			<!--{{{ Maximize Window -->
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximize"/>
-      </mousebind>
-    </context>
+			</mousebind><!--}}}-->
+		</context>
     <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
+			<!--{{{ Focus Window -->
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
         <action name="Unshade"/>
-      </mousebind>
+      </mousebind><!--}}} -->
+			<!--{{{ Window Menu -->
       <mousebind button="Right" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
         <action name="ShowMenu">
           <menu>client-menu</menu>
         </action>
-      </mousebind>
-    </context>
+			</mousebind><!--}}}-->
+    </context><!--}}}-->
+		<!--{{{ Top Border -->
     <context name="Top">
       <mousebind button="Left" action="Drag">
         <action name="Resize">
           <edge>top</edge>
         </action>
       </mousebind>
-    </context>
+		</context><!--}}} -->
+		<!--{{{ Left Border -->
     <context name="Left">
       <mousebind button="Left" action="Drag">
         <action name="Resize">
           <edge>left</edge>
         </action>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Right Border -->
     <context name="Right">
       <mousebind button="Left" action="Drag">
         <action name="Resize">
           <edge>right</edge>
         </action>
       </mousebind>
-    </context>
+		</context><!--}}} -->
+		<!--{{{ Bottom Border -->
     <context name="Bottom">
       <mousebind button="Left" action="Drag">
         <action name="Resize">
@@ -633,7 +648,8 @@
           <menu>client-menu</menu>
         </action>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Corners-->
     <context name="TRCorner BRCorner TLCorner BLCorner">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -643,7 +659,8 @@
       <mousebind button="Left" action="Drag">
         <action name="Resize"/>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Client -->
     <context name="Client">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -657,7 +674,8 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Icon-->
     <context name="Icon">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -674,15 +692,9 @@
           <menu>client-menu</menu>
         </action>
       </mousebind>
-    </context>
-    <context name="AllDesktops">
-      <mousebind button="Left" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </mousebind>
-    </context>
-    <context name="Iconify">
+		</context><!--}}}-->
+		<!--{{{ Button: Minimize(Iconify) -->
+		<context name="Iconify">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -690,7 +702,8 @@
       <mousebind button="Left" action="Click">
         <action name="Iconify"/>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Button: Maximize -->
     <context name="Maximize">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -720,7 +733,8 @@
           <direction>horizontal</direction>
         </action>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Button: Close-->
     <context name="Close">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -730,7 +744,8 @@
       <mousebind button="Left" action="Click">
         <action name="Close"/>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Desktop -->
     <context name="Desktop">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -740,7 +755,8 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-    </context>
+		</context><!--}}}-->
+		<!--{{{ Root -->
     <context name="Root">
       <!-- Menus -->
       <mousebind button="Middle" action="Press">
@@ -753,148 +769,159 @@
           <menu>root-menu</menu>
         </action>
       </mousebind>
-    </context>
+		</context><!--}}}-->
   </mouse>
+	<!--}}}-->
+	<!--{{{ Menu -->
   <menu>
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-       menu is hidden again -->
-    <middle>no</middle>
+		<!-- if a press-release lasts longer than this setting (in milliseconds), the
+			menu is hidden again -->
+		<hideDelay>200</hideDelay>
     <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-       entry.
-       if this is a negative value, then the delay is infinite and the
-       submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
+		<middle>no</middle>
+		<!-- time to delay before showing a submenu after hovering over the parent
+			 entry.
+			 if this is a negative value, then the delay is infinite and the
+			 submenu will not be shown until it is clicked on -->
+		<submenuShowDelay>100</submenuShowDelay>
     <!-- time to delay before hiding a submenu when selecting another
        entry in parent menu
        if this is a negative value, then the delay is infinite and the
        submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
+		<submenuHideDelay>400</submenuHideDelay>
     <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
+    <showIcons>yes</showIcons>
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
+    <manageDesktops>yes</manageDesktops>
+	</menu><!--}}}-->
+	<!--{{{ Rules -->
   <applications>
+		<!--{{{ Focus Everything -->
     <application class="*">
       <focus>yes</focus>
-    </application>
+		</application><!--}}}-->
+		<!--{{{ Firefox -->
     <application class="Firefox" type="normal">
       <decor>no</decor>
-    </application>
+		</application><!--}}}-->
+		<!--{{{ Evolution Alarm -->
     <application class="Evolution-alarm-notify">
       <desktop>all</desktop>
       <layer>above</layer>
-    </application>
+		</application><!--}}}-->
+		<!--{{{ JetBrains Applications -->
     <application class="jetbrains-*" type="normat">
       <decor>no</decor>
-    </application>
+		</application><!--}}}-->
+		<!--{{{ Visual Studio Code -->
     <application class="Code" type="normal">
       <decor>no</decor>
-    </application>
+		</application><!--}}}-->
+		<!--{{{ Terminal -->
     <application class="st-256color" type="normal">
       <decor>no</decor>
       <desktop>all</desktop>
       <skip_pager>yes</skip_pager>
-    </application>
+		</application><!--}}}-->
+		<!--{{{ Telegram -->
     <application class="TelegramDesktop" type="normal">
       <desktop>all</desktop>
       <skip_pager>yes</skip_pager>
-    </application>
-    <!--
-  # this is an example with comments through out. use these to make your
-  # own rules, but without the comments of course.
-  # you may use one or more of the name/class/role/title/type rules to specify
-  # windows to match
+		</application><!--}}}-->
+		<!--{{{ Rules Example
+			this is an example with comments through out. use these to make your
+			own rules, but without the comments of course.
+			You may use one or more of the name/class/role/title/type rules
+			to specify windows to match
 
-  <application name="the window's _OB_APP_NAME property (see obxprop)" class="the window's _OB_APP_CLASS property (see obxprop)" groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)" groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)" role="the window's _OB_APP_ROLE property (see obxprop)" title="the window's _OB_APP_TITLE property (see obxprop)" type="the window's _OB_APP_TYPE property (see obxprob)..
-                      (if unspecified, then it is 'dialog' for child windows)">
-  # you may set only one of name/class/role/title/type, or you may use more
-  # than one together to restrict your matches.
+			<application name="the window's _OB_APP_NAME property (see obxprop)"
+									 class="the window's _OB_APP_CLASS property (see obxprop)"
+									 groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)"
+									 groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)"
+									 role="the window's _OB_APP_ROLE property (see obxprop)"
+									 title="the window's _OB_APP_TITLE property (see obxprop)"
+									 type="the window's _OB_APP_TYPE property (see obxprob)..
+									 (if unspecified, then it is 'dialog' for child windows)">
+				you may set only one of name/class/role/title/type, or you may use more
+				than one together to restrict your matches.
 
-  # the name, class, role, and title use simple wildcard matching such as those
-  # used by a shell. you can use * to match any characters and ? to match
-  # any single character.
+				The name, class, role, and title use simple wildcard matching such as those
+				used by a shell. you can use * to match any characters and ? to match
+				any single character.
+				The type is one of: normal, dialog, splash, utility,
+				menu, toolbar, dock,or desktop.
+				When multiple rules match a window, they will all be applied, in those
+				order that they appear in this list each rule element can be left out 
+				or set to 'default' to specify to not change that attribute of the windows
 
-  # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock,
-  #    or desktop
+				<decor>yes</decor>
+				enable or disable window decorations
 
-  # when multiple rules match a window, they will all be applied, in the
-  # order that they appear in this list
+				<shade>no</shade>
+				make the window shaded when it appears, or not
 
+				<position force="no">
+					the position is only used if both an x and y coordinate are provided
+					(and not set to 'default')
+					when force is "yes", then the window will be placed here even if it
+					says you want it placed elsewhere.  this is to override buggy
+					applications who refuse to behave
+					
+					<x>center</x>
+					a number like 50, or 'center' to center on screen. use a negative number
+					to start from the right (or bottom for <y>), ie -50 is 50 pixels from
+					the right edge (or bottom). use 'default' to specify using value
+					provided by the application, or chosen by openbox, instead.
+					<y>200</y>
 
-    # each rule element can be left out or set to 'default' to specify to not 
-    # change that attribute of the window
+					<monitor>1</monitor>
+					specifies the monitor in a xinerama setup.
+					1 is the first head, or 'mouse' for wherever the mouse is
+				</position>
 
-    <decor>yes</decor>
-    # enable or disable window decorations
+				<size>
+					the size to make the window.
+					<width>20</width>
+					a number like 20, or 'default' to use the size given by the application.
+					you can use fractions such as 1/2 or percentages such as 75% in which
+					case the value is relative to the size of the monitor that the window
+					appears on.
+					<height>30%</height>
+				</size>
 
-    <shade>no</shade>
-    # make the window shaded when it appears, or not
+				<focus>yes</focus>
+				if the window should try be given focus when it appears. if this is set
+				to yes it doesn't guarantee the window will be given focus. some
+				restrictions may apply, but Openbox will try to
 
-    <position force="no">
-      # the position is only used if both an x and y coordinate are provided
-      # (and not set to 'default')
-      # when force is "yes", then the window will be placed here even if it
-      # says you want it placed elsewhere.  this is to override buggy
-      # applications who refuse to behave
-      <x>center</x>
-      # a number like 50, or 'center' to center on screen. use a negative number
-      # to start from the right (or bottom for <y>), ie -50 is 50 pixels from
-      # the right edge (or bottom). use 'default' to specify using value
-      # provided by the application, or chosen by openbox, instead.
-      <y>200</y>
-      <monitor>1</monitor>
-      # specifies the monitor in a xinerama setup.
-      # 1 is the first head, or 'mouse' for wherever the mouse is
-    </position>
+				<desktop>1</desktop>
+				1 is the first desktop, 'all' for all desktops
 
-    <size>
-      # the size to make the window.
-      <width>20</width>
-      # a number like 20, or 'default' to use the size given by the application.
-      # you can use fractions such as 1/2 or percentages such as 75% in which
-      # case the value is relative to the size of the monitor that the window
-      # appears on.
-      <height>30%</height>
-    </size>
+				<layer>normal</layer>
+				'above', 'normal', or 'below'
 
-    <focus>yes</focus>
-    # if the window should try be given focus when it appears. if this is set
-    # to yes it doesn't guarantee the window will be given focus. some
-    # restrictions may apply, but Openbox will try to
+				<iconic>no</iconic>
+				make the window iconified when it appears, or not
 
-    <desktop>1</desktop>
-    # 1 is the first desktop, 'all' for all desktops
+				<skip_pager>no</skip_pager>
+				asks to not be shown in pagers
 
-    <layer>normal</layer>
-    # 'above', 'normal', or 'below'
+				<skip_taskbar>no</skip_taskbar>
+				asks to not be shown in taskbars. window cycling actions will also
+				skip past such windows
 
-    <iconic>no</iconic>
-    # make the window iconified when it appears, or not
+				<fullscreen>yes</fullscreen>
+				make the window in fullscreen mode when it appears
 
-    <skip_pager>no</skip_pager>
-    # asks to not be shown in pagers
-
-    <skip_taskbar>no</skip_taskbar>
-    # asks to not be shown in taskbars. window cycling actions will also
-    # skip past such windows
-
-    <fullscreen>yes</fullscreen>
-    # make the window in fullscreen mode when it appears
-
-    <maximized>true</maximized>
-    # 'Horizontal', 'Vertical' or boolean (yes/no)
-  </application>
-
-  # end of the example
--->
-  </applications>
+				<maximized>true</maximized>
+				'Horizontal', 'Vertical' or boolean (yes/no)
+			</application>
+	}}}-->
+	</applications><!--}}}-->
 </openbox_config>
 
 <!--
