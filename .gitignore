@@ -1,1 +1,4 @@
-*
+__pycache__
+.config/nvim/bundle
+*.o
+Downloads/Soft/st/st

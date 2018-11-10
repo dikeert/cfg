@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/NLKNguyen/papercolor-theme" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/Shougo/deoplete.nvim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/chase/vim-ansible-yaml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/ctrlpvim/ctrlp.vim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/dracula/vim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/fatih/vim-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/scrooloose/nerdcommenter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/scrooloose/nerdtree" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/zchee/deoplete-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/zchee/deoplete-go/rplugin/python3/deoplete/clang" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/bundle/repos/github.com/zchee/deoplete-go/rplugin/python3/deoplete/ujson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.config/nvim/dein.vim" vcs="Git" />
+  </component>
+</project>
