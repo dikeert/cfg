@@ -5,7 +5,7 @@ function do_ppwd {
 }
 
 function do_idea {
-    open -a "`ls -1d /Applications/IntelliJ\ * | tail -n1`" "$1"
+	/usr/local/bin/idea $@
 }
 
 function do_title {
@@ -18,6 +18,14 @@ function do_tmux {
 	else
 		tmux $@
 	fi
+}
+
+do_j11() {
+	export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+}
+
+do_j8() {
+	export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 }
 
 export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[\033[36m\]$ \[\033[m\]'
