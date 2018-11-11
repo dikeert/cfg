@@ -1,19 +1,16 @@
 [module/wlan]
 type = internal/network
 interface = wlp4s0
-interval = 3.0
+interval = 5.0
 
-color = #891DE1
+color = #4271ad
 
 format-connected = <label-connected>
-format-connected-underline = ${self.color}
 label-connected = %{A1:/bin/bash -c rofi-wifi-menu.sh:} %essid%%{A}
 label-connected-foreground = ${self.color}
 
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.foreground-alt}
 
 label-disconnected = %{A1:/bin/bash -c rofi-wifi-menu.sh:}no signal%{A}
-label-disconnected-foreground = ${colors.foreground-alt}
 
 ; vim:ft=dosini

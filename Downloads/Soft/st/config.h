@@ -4,7 +4,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Monaco:size=13:antialias=true:autohint=true";
+char font[] = "FuraCode Nerd Font:size=11:style=Medium:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
@@ -85,28 +85,28 @@ static unsigned int tabspaces = 8;
 const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#EDEDED", /* black   */
-  [1] = "#D7005F", /* red     */
-  [2] = "#718C00", /* green   */
-  [3] = "#D75F00", /* yellow  */
-  [4] = "#4271AE", /* blue    */
-  [5] = "#8959A8", /* magenta */
-  [6] = "#005F87", /* cyan    */
-  [7] = "#4D4D4C", /* white   */
+  [0] = "#4c4c4b", /* black   */
+  [1] = "#d6225e", /* red     */
+  [2] = "#718c00", /* green   */
+  [3] = "#d75e00", /* yellow  */
+  [4] = "#4271ad", /* blue    */
+  [5] = "#8959a8", /* magenta */
+  [6] = "#3e989f", /* cyan    */
+  [7] = "#eeeeed", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#969694", /* black   */
-  [9]  = "#D7005F", /* red     */
-  [10] = "#718C00", /* green   */
-  [11] = "#D75F00", /* yellow  */
-  [12] = "#4271AE", /* blue    */
-  [13] = "#8959A8", /* magenta */
-  [14] = "#3E999F", /* cyan    */
-  [15] = "#F5F5F5", /* white   */
+  [8]  = "#4c4c4b", /* black   */
+  [9]  = "#d6225e", /* red     */
+  [10] = "#718c00", /* green   */
+  [11] = "#d75e00", /* yellow  */
+  [12] = "#4271ad", /* blue    */
+  [13] = "#8959a8", /* magenta */
+  [14] = "#3e989f", /* cyan    */
+  [15] = "#eeeeed", /* white   */
 
   /* special colors */
-  [256] = "#EEEEEE", /* background */
-  [257] = "#005F87", /* foreground */
+  [256] = "#eeeeed", /* background */
+  [257] = "#4c4c4b", /* foreground */
 };
 
 /*

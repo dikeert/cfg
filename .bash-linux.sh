@@ -29,12 +29,14 @@ function do_mvn {
 	local root="$(git rev-parse --show-toplevel)"
 	local atl_opts="-s ${HOME}/.m2/atl.xml"
 	local opts=""
-	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
-		opts="${opts} ${atl_opts}"
-	fi
+	if [ -f "${root}/.git/config" ]; then
+		if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d '.' -f 1) = 'stash' ]; then
+			opts="${opts} ${atl_opts}"
+		fi
 
-	if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d ':' -f 1) = 'bbc' ]; then
-		opts="${opts} ${atl_opts}"
+		if [ $(cat "${root}/.git/config" | grep url | grep @ | cut -d '@' -f 2 | cut -d ':' -f 1) = 'bbc' ]; then
+			opts="${opts} ${atl_opts}"
+		fi
 	fi
 
 	~/.local/bin/mvn ${opts} $@
@@ -62,3 +64,5 @@ alias mvn=do_mvn
 
 complete -C '~/.local/bin/aws_completer' aws
 export PS1='\[\033[36m\][$(shorten_path)]\[\e[31m\]$(__git_ps1)\n\[$(prompt_color)\]$(prompt_text)\[\033[m\]'
+export LS_COLORS='di=1;34:ln=1;31:so=37:pi=1;93:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32'
+

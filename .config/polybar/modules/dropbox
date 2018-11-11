@@ -1,0 +1,6 @@
+[module/dropbox]
+type = custom/script
+exec = ~/.local/bin/dp.sh
+interval = 5
+
+; vim:ft=dosini

@@ -3,7 +3,7 @@ type = internal/mpd
 
 interval = 2
 format-online = %{A1:mpc toggle:}<label-song> <icon-prev> <bar-progress> <icon-next>    <icon-repeat> <icon-repeatone> <icon-random>%{A}
-format-online-padding = 2
+format-online-padding = 0
 format-paused = %{A1:mpc toggle:}<label-song> <icon-prev> <bar-progress> <icon-next>    <icon-repeat> <icon-repeatone> <icon-random>%{A}
 format-paused-foreground = ${colors.foreground-alt}
 format-offline = <label-offline>
@@ -18,17 +18,17 @@ icon-random = 
 icon-repeat = 
 icon-repeatone = 
 
-label-song-maxlen = 45
+label-song-maxlen = 85
 label-song-ellipsis = true
 label-song = "%{T0}%{T-}  %artist% - %title%  "
 
-toggle-on-foreground = #ff
-toggle-off-foreground = #55
+toggle-on-foreground = ${colors.foreground}
+toggle-off-foreground = ${colors.foreground-alt}
 
 bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = 
 bar-progress-empty = 
 
-label-offline = %{T0}%{T-} 
+label-offline = %{T0}%{T-} no mpd
 label-offline-foreground = ${colors.foreground-alt}

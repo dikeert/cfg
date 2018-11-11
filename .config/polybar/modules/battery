@@ -3,19 +3,16 @@ type = internal/battery
 adapter = AC
 full-at = 98
 
-color = #D7005F
+color = #d6225e
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${self.color}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.color}
 label-discharging-font = 0
 label-discharging-foreground = ${self.color}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${self.color}
-format-full-underline = ${self.color}
 label-full-foreground = ${self.color}
 
 ramp-capacity-0 = 

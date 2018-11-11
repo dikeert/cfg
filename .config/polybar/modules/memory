@@ -2,7 +2,7 @@
 type = internal/memory
 interval = 10
 
-color = #0D8EC4
+color = #4271ad
 
 format-prefix = " "
 format-prefix-foreground = ${self.color}
