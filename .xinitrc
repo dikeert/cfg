@@ -12,7 +12,7 @@ setxkbmap -layout us,ru -option grp:win_space_toggle
 
 compton --config ~/.config/compton.conf &
 
-feh --bg-scale ~/Pictures/Wallpapers/Art/alena-aenami-dreamer-1k.png
+feh --bg-scale ~/.cache/wallpaper
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) 
 export SSH_AUTH_SOCK
