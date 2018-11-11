@@ -501,19 +501,24 @@
       </action>
 		</keybind><!--}}}-->
 		<!--{{{ Ranger -->
-    <keybind key="A-W-f">
-      <action name="ForEach">
-        <query target="default">
-          <class>RangerFm</class>
-          <desktop>current</desktop>
-        </query>
-        <then>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-          <action name="Stop"/>
-        </then>
-      </action>
+		<keybind key="A-W-f">
+			<action name="ForEach">
+				<query target="default">
+					<class>RangerFm</class>
+					<desktop>current</desktop>
+				</query>
+				<then>
+					<action name="Focus"/>
+					<action name="Raise"/>
+					<action name="Unshade"/>
+					<action name="Stop"/>
+				</then>
+				<none>
+					<action name="Execute">
+						<command>gtk-launch ranger</command>
+					</action>
+				</none>
+			</action>
 		</keybind><!--}}}-->
 		<!--{{{ JetBrains -->
     <keybind key="A-W-i">

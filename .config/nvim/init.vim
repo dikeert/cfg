@@ -105,7 +105,7 @@
 	" }}}
 	
 	" {{{ CTRL-P
-		let g:ctrlp_root_markers = ['.config', 'config', 'pom.xml', '.p4ignore', 'main.go', 'Makefile']
+		let g:ctrlp_root_markers = ['pom.xml', '.p4ignore', 'main.go', '.git']
 		let g:ctrlp_show_hidden = 1
 	" }}}
 " {{{ Vin Indent Guides
@@ -123,7 +123,16 @@
 	"}}}
 	
 	"{{{ Tools
-		map <c-k><c-b> :NERDTreeToggle<cr>
+	"}}}
+	
+	"{{{ Plugins
+		"{{{ NERDTree
+			map <c-k><c-b> :NERDTreeToggle<cr>
+			" open nodes with "l"
+			au Filetype nerdtree nmap <buffer> l o
+			" close a node parent, basically go one level up
+			au Filetype nerdtree nmap <buffer> h x
+		"}}}
 	"}}}
 	
 	"{{{ Actions

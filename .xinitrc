@@ -20,4 +20,4 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 sh -c "sleep 1s; polybar openbox" &
 
-openbox
+$HOME/.local/bin/openbox
