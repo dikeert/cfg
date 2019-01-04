@@ -51,6 +51,7 @@ font-1 = FontAwesome:size=13:fontformat=truetype:antialias=true;3
 font-2 = fixed:fontformat=truetype:size=11:antialias=false;3
 font-3 = DejaVu Sans:size=13:fontformat=truetype:antialias=true;3
 font-4 = Noto Sans:style=SemiCondensed SemiBold:fontformat=truetype:size=13:antialias=true;3
+font-5 = Noto Color Emoji:style=Regular:fontformat=truetype:scale=7:antialias=true;3
 
 [bar/i3]
 inherit = bar/common

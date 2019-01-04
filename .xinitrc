@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME="lxqt"
 
 
 xrandr --setprovideroutputsource modesetting NVIDIA-0
@@ -9,6 +9,7 @@ xrandr --dpi 120
 xrandr --output eDP-1-1 --right-of DP-1-1
 xrdb -load ~/.Xresources
 setxkbmap -layout us,ru -option grp:win_space_toggle
+xinput set-prop "TPPS/2 IBM TrackPoint" "libinput Accel Speed" -0.28
 
 compton --config ~/.config/compton.conf &
 

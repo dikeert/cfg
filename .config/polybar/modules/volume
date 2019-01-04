@@ -1,27 +1,30 @@
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
-format-volume = %{A1:pavucontrol:}<label-volume> <bar-volume>%{A}
-label-volume = 
-label-volume-foreground = ${colors.foreground}
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
 
-format-muted-prefix = 
-format-muted-foreground = #44475a
-label-muted = 
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-foreground = ${colors.foreground}
-bar-volume-fill = 
-bar-volume-empty = 
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted = 🔇
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
 
 ; vim:ft=dosini
