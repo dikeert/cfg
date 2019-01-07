@@ -389,6 +389,16 @@
       </action>
     </keybind>
     <!--}}}-->
+		<!--{{{ Windows by App -->
+		<keybind key="W-grave">
+			<action name="Execute">
+				<startupnotify>
+					<enabled>false</enabled>
+				</startupnotify>
+				<command>wmctrl-switch-by-application.sh</command>
+			</action>
+		</keybind>
+		<!--}}}-->
     <!--}}}-->
     <!--{{{ Manage OpenBox -->
     <!--{{{ Reconfigure -->
@@ -417,21 +427,21 @@
     <!--{{{ Mute Output -->
     <keybind key="0x79">
       <action name="Execute">
-        <command>sh -c 'pactl set-sink-mute "$(pactl info | grep "Default Sink" | cut -d ':' -f 2 | xargs)" toggle'</command>
+				<command>pactl set-sink-mute @DEFAULT_SINK@ toggle</command>
       </action>
     </keybind>
     <!--}}}-->
     <!--{{{ Volume Down -->
     <keybind key="0x7A">
       <action name="Execute">
-        <command>sh -c 'pactl set-sink-volume "$(pactl info | grep "Default Sink" | cut -d ':' -f 2 | xargs)" -5%'</command>
+        <command>pactl set-sink-volume @DEFAULT_SINK@ -5%</command>
       </action>
     </keybind>
     <!--}}}-->
     <!--{{{ Volume Up -->
     <keybind key="0x7B">
       <action name="Execute">
-        <command>sh -c 'pactl set-sink-volume "$(pactl info | grep "Default Sink" | cut -d ':' -f 2 | xargs)" +5%'</command>
+        <command>pactl set-sink-volume @DEFAULT_SINK@ +5%</command>
       </action>
     </keybind>
     <!--}}}-->
@@ -503,6 +513,11 @@
           <action name="Unshade"/>
           <action name="Stop"/>
         </then>
+        <none>
+          <action name="Execute">
+            <command>gtk-launch firefox</command>
+          </action>
+        </none>
       </action>
     </keybind>
     <!--}}}-->
@@ -574,6 +589,27 @@
       </action>
     </keybind>
     <!--}}}-->
+		<!--{{{ Boostnote -->
+		<keybind key="A-W-n">
+			<action name="ForEach">
+				<query target="default">
+					<class>Boostnote</class>
+					<desktop>current</desktop>
+				</query>
+				<then>
+					<action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+          <action name="Stop"/>
+				</then>
+				<none>
+          <action name="Execute">
+            <command>gtk-launch boostnote</command>
+          </action>
+        </none>
+			</action>
+		</keybind>
+		<!--}}}-->
     <!--{{{ JetBrains -->
     <keybind key="A-W-i">
       <action name="ForEach">
@@ -919,12 +955,20 @@
     <application class="st-256color-nvim" type="normal">
       <decor>no</decor>
     </application>
+		<!--}}}-->
     <!--{{{ Telegram -->
     <application class="TelegramDesktop" type="normal">
       <desktop>all</desktop>
       <skip_pager>yes</skip_pager>
     </application>
     <!--}}}-->
+		<!--{{{ Boostnote -->
+		<application class="Boostnote" type="normal">
+			<desktop>all</desktop>
+			<skip_pager>yes</skip_pager>
+			<decor>no</decor>
+		</application>
+		<!--}}}-->
     <!--{{{ Rules Example
 			this is an example with comments through out. use these to make your
 			own rules, but without the comments of course.

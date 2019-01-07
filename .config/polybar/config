@@ -21,7 +21,7 @@ include-file = /home/aner/.config/polybar/modules/i3
 include-file = /home/aner/.config/polybar/modules/mpd
 include-file = /home/aner/.config/polybar/modules/backlight
 include-file = /home/aner/.config/polybar/modules/xworkspaces
-include-file = /home/aner/.config/polybar/modules/dropbox
+#include-file = /home/aner/.config/polybar/modules/dropbox
 
 [bar/common]
 width = 100%
@@ -71,7 +71,7 @@ modules-center =
 
 padding-left = 1
 
-modules-right = cpu memory temperature filesystem dropbox volume xkeyboard b0 b1 wlan date
+modules-right = cpu memory temperature filesystem volume xkeyboard b0 b1 wlan date
 tray-position = right
 tray-padding = 4
 tray-transparent = false

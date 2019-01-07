@@ -105,10 +105,11 @@
 	" }}}
 	
 	" {{{ CTRL-P
-		let g:ctrlp_root_markers = ['pom.xml', '.p4ignore', 'main.go', '.git']
+		let g:ctrlp_root_markers = ['pom.xml', '.p4ignore', 'main.go', '.git', '.ctrlp']
 		let g:ctrlp_show_hidden = 1
 	" }}}
-" {{{ Vin Indent Guides
+	
+	" {{{ Vim Indent Guides
 		let g:indent_guides_auto_colors = 0
 		let g:indent_guides_enable_on_vim_startup = 1
 		hi IndentGuidesOdd  ctermbg=254
